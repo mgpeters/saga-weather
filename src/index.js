@@ -4,8 +4,8 @@
  * @module  index.js
  * @author  mpeters
  * @date    09/29/2020
- * @description Weather application root
- * react-dom rendering component
+ * @description Weather application root react-dom
+ * rendering component w/ redux Provider HOC
  *
  * ************************************
  */
