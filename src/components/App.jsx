@@ -10,14 +10,38 @@
  * ************************************
  */
 
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const App = () => {
-  return (
-    <div>
-      <h1>WORKING</h1>
-    </div>
-  );
-};
+import * as actions from '../state/actions/actions';
 
-export default App;
+const mapStateToProps = (store) => ({
+  locationData: store.locationData,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchedWeather: () => {
+    console.log('fetched weather fired');
+    dispatch(actions.getWeather());
+  },
+  updateLocation: () => {
+    console.log('update location fired');
+    dispatch(actions.updateLocation());
+  },
+});
+
+class App extends Component {
+  componentDidMount() {
+    console.log('mounted!');
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>WORKING</h1>
+      </div>
+    );
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

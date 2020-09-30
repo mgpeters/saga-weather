@@ -8,3 +8,22 @@
  *
  * ************************************
  */
+
+// gets rid of regeneratorRuntime is not defined error
+import 'regenerator-runtime/runtime';
+
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+// IMPORT API??
+
+function* fetchData(action) {
+  try {
+    // const location = yield call();
+    yield put({ type: 'FETCHED_WEATHER_SUCCEEDED', location });
+  } catch (error) {
+    yield put({ type: 'FETCHED_WEATHER_FAILED', message: error.message });
+  }
+}
+
+export default function* mySaga() {
+  yield takeEvery('FETCHED_WEATHER', fetchData);
+}

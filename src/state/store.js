@@ -21,7 +21,7 @@ import saga from './sagas/saga';
 const sagaMiddleware = createSagaMiddleware();
 
 // createStore only takes one 'enhancer function', combined applyMiddleware() and
-// composeWithDevTools() with 'compose'.
+// composeWithDevTools() with 'compose()'.
 const store = createStore(
   reducer,
   compose(applyMiddleware(sagaMiddleware), composeWithDevTools())
