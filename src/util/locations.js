@@ -1,4 +1,17 @@
-export default {
+/**
+ * ************************************
+ *
+ * @module  locations.js
+ * @author  mpeters
+ * @date    09/29/2020
+ * @description Locations object with
+ * OpenWeather API city information for
+ * fetch requests
+ *
+ * ************************************
+ */
+
+const locations = {
   newyork: {
     id: 5128581,
     name: 'New York City',
@@ -30,3 +43,5 @@ export default {
     },
   },
 };
+
+export default locations;
