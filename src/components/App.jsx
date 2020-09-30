@@ -32,7 +32,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 class App extends Component {
   componentDidMount() {
-    console.log('mounted!');
+    this.props.fetchedWeather();
   }
 
   render() {

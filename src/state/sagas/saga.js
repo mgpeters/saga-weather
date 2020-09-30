@@ -18,6 +18,7 @@ import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 function* fetchData(action) {
   try {
     // const location = yield call();
+    console.log('saga fx fired');
     yield put({ type: 'FETCHED_WEATHER_SUCCEEDED', location });
   } catch (error) {
     yield put({ type: 'FETCHED_WEATHER_FAILED', message: error.message });
@@ -25,5 +26,6 @@ function* fetchData(action) {
 }
 
 export default function* mySaga() {
+  console.log('saga fired');
   yield takeEvery('FETCHED_WEATHER', fetchData);
 }

@@ -21,6 +21,7 @@ const weatherDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.FETCHED_WEATHER:
       // do some stuff
+      console.log('fetched Weather Reducer Fired!');
       return {
         ...state,
       };
