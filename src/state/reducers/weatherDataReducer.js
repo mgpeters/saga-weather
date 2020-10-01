@@ -12,25 +12,30 @@
 
 import * as types from '../constants/actionTypes';
 
-import api from '../../util/apiKeys';
-
 const initialState = {
   locationData: {},
 };
 
 const weatherDataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.FETCHED_WEATHER:
+    case types.FETCH_WEATHER_BY_LOCATION:
       // do some stuff
       return {
         ...state,
         loading: true,
       };
-    case types.FETCHED_WEATHER_SUCCEEDED:
+    case types.FETCH_WEATHER_SUCCEEDED:
       return {
         ...state,
         loading: false,
         locationData: action.data,
+      };
+    case types.FETCH_WEATHER_FAILED:
+      console.log(`Error Fetching Weather Data: ${action.message}`);
+      return {
+        ...state,
+        loading: false,
+        error: true,
       };
     case types.UPDATE_LOCATION:
       // do some stuff

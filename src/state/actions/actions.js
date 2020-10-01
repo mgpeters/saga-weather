@@ -12,7 +12,7 @@
 import * as types from '../constants/actionTypes';
 
 export const getWeather = (data) => ({
-  type: types.FETCHED_WEATHER,
+  type: types.FETCH_WEATHER_BY_LOCATION,
   payload: data,
 });
 

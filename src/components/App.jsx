@@ -21,11 +21,9 @@ const mapStateToProps = (store) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchedWeather: () => {
-    console.log('fetched weather fired');
     dispatch(actions.getWeather());
   },
   updateLocation: () => {
-    console.log('update location fired');
     dispatch(actions.updateLocation());
   },
 });
