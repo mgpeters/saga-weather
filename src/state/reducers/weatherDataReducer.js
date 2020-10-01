@@ -1,3 +1,4 @@
+import locations from '../../util/locations';
 /**
  * ************************************
  *
@@ -17,31 +18,40 @@ const initialState = {
 };
 
 const weatherDataReducer = (state = initialState, action) => {
+  const locationState = {
+    ...state.locationData,
+  };
+
   switch (action.type) {
     case types.FETCH_WEATHER_BY_LOCATION:
-      // do some stuff
       return {
         ...state,
         loading: true,
       };
+
     case types.FETCH_WEATHER_SUCCEEDED:
+      locationState[action.locationData.name] = action.locationData;
+
       return {
         ...state,
         loading: false,
-        locationData: action.locationData,
+        locationData: locationState,
       };
+
     case types.FETCH_WEATHER_FAILED:
       console.log(`Error Fetching Weather Data: ${action.message}`);
+
       return {
         ...state,
         loading: false,
         error: true,
       };
+
     case types.UPDATE_LOCATION:
-      // do some stuff
       return {
         ...state,
       };
+
     default:
       return state;
   }
