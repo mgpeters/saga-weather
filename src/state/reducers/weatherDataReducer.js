@@ -28,7 +28,7 @@ const weatherDataReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        locationData: action.data,
+        locationData: action.locationData,
       };
     case types.FETCH_WEATHER_FAILED:
       console.log(`Error Fetching Weather Data: ${action.message}`);
