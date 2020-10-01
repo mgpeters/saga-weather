@@ -16,6 +16,8 @@ import { connect } from 'react-redux';
 import * as actions from '../state/actions/actions';
 
 const mapStateToProps = (store) => ({
+  currentLocation: store.currentLocation,
+  locations: store.locations,
   locationData: store.locationData,
 });
 
@@ -31,8 +33,10 @@ const mapDispatchToProps = (dispatch) => ({
 class App extends Component {
   componentDidMount() {
     this.props.fetchWeather('newyork');
-    this.props.fetchWeather('miami');
-    this.props.fetchWeather('losangeles');
+  }
+
+  componentDidUpdate() {
+    document.title = this.props.currentLocation;
   }
 
   render() {

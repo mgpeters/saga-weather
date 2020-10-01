@@ -1,4 +1,3 @@
-import locations from '../../util/locations';
 /**
  * ************************************
  *
@@ -14,6 +13,8 @@ import locations from '../../util/locations';
 import * as types from '../constants/actionTypes';
 
 const initialState = {
+  currentLocation: 'Weather App',
+  locations: ['New York, NY', 'Miami, FL', 'LosAngeles, CA'],
   locationData: {},
 };
 
@@ -35,6 +36,7 @@ const weatherDataReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        currentLocation: `${action.locationData.name}, ${action.locationData.state}`,
         locationData: locationState,
       };
 
