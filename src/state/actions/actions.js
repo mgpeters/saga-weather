@@ -11,12 +11,12 @@
 
 import * as types from '../constants/actionTypes';
 
-export const getWeather = (data) => ({
+export const getWeather = (location) => ({
   type: types.FETCH_WEATHER_BY_LOCATION,
-  payload: data,
+  payload: location,
 });
 
-export const updateLocation = (data) => ({
+export const updateLocation = (location) => ({
   type: types.UPDATE_LOCATION,
-  payload: data,
+  payload: location,
 });

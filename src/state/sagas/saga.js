@@ -15,6 +15,7 @@ import 'regenerator-runtime/runtime';
 import { call, put, takeEvery, takeLatest, all } from 'redux-saga/effects';
 
 import * as types from '../constants/actionTypes';
+import locations from '../../util/locations';
 import api from '../../util/apiKeys';
 
 // Please input your own OpenWeatherAPI key here or import
@@ -22,11 +23,15 @@ import api from '../../util/apiKeys';
 // utils dir
 const apiKey = api ? api.openWeatherMap : undefined; // add key in place of 'undefined'
 
-function* fetchData() {
+function* fetchData(action) {
+  const { lat, lon } = locations[action.payload].coord;
+
   try {
     const data = yield fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=40.714272&lon=-74.005966&exclude=minutely,alerts&appid=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&appid=${apiKey}`
     ).then((response) => response.json());
+
+    console.log(data);
 
     yield put({ type: types.FETCH_WEATHER_SUCCEEDED, data });
   } catch (error) {

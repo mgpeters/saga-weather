@@ -20,8 +20,8 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchedWeather: () => {
-    dispatch(actions.getWeather());
+  fetchWeather: (location) => {
+    dispatch(actions.getWeather(location));
   },
   updateLocation: () => {
     dispatch(actions.updateLocation());
@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchedWeather();
+    this.props.fetchWeather('losangeles');
   }
 
   render() {
