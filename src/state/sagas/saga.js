@@ -12,20 +12,26 @@
 // gets rid of regeneratorRuntime is not defined error
 import 'regenerator-runtime/runtime';
 
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery, takeLatest, all } from 'redux-saga/effects';
 // IMPORT API??
+import api from '../../util/apiKeys';
 
-function* fetchData(action) {
+function* fetchData() {
   try {
-    // const location = yield call();
-    console.log('saga fx fired');
-    yield put({ type: 'FETCHED_WEATHER_SUCCEEDED', location });
+    const data = yield fetch(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=40.714272&lon=-74.005966&exclude=minutely,alerts&appid=${api.openWeatherMap}`
+    ).then((response) => response.json());
+
+    yield put({ type: 'FETCHED_WEATHER_SUCCEEDED', data });
   } catch (error) {
     yield put({ type: 'FETCHED_WEATHER_FAILED', message: error.message });
   }
 }
 
-export default function* mySaga() {
-  console.log('saga fired');
-  yield takeEvery('FETCHED_WEATHER', fetchData);
+function* mySaga() {
+  yield takeLatest('FETCHED_WEATHER', fetchData);
+}
+
+export default function* rootSaga() {
+  yield all([mySaga()]);
 }

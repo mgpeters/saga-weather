@@ -1,4 +1,3 @@
-import { render } from 'react-dom';
 /**
  * ************************************
  *
@@ -13,6 +12,8 @@ import { render } from 'react-dom';
 
 import * as types from '../constants/actionTypes';
 
+import api from '../../util/apiKeys';
+
 const initialState = {
   locationData: {},
 };
@@ -21,9 +22,15 @@ const weatherDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.FETCHED_WEATHER:
       // do some stuff
-      console.log('fetched Weather Reducer Fired!');
       return {
         ...state,
+        loading: true,
+      };
+    case types.FETCHED_WEATHER_SUCCEEDED:
+      return {
+        ...state,
+        loading: false,
+        locationData: action.data,
       };
     case types.UPDATE_LOCATION:
       // do some stuff
