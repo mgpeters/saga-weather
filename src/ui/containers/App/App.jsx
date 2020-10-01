@@ -12,8 +12,10 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import * as actions from '../state/actions/actions';
+import styles from '../../../styles/containers/App.scss';
+import * as actions from '../../../state/actions/actions';
 
 const mapStateToProps = (store) => ({
   currentLocation: store.currentLocation,
@@ -47,5 +49,11 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  currentLocation: PropTypes.string,
+  locations: PropTypes.arrayOf(PropTypes.string),
+  locationData: PropTypes.object,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

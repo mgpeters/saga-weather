@@ -14,7 +14,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import App from './components/App.jsx';
+import App from './ui/containers/App/App.jsx';
 import store from './state/store';
 
 import styles from './styles/styles.scss';
