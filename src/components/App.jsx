@@ -1,11 +1,45 @@
-import React from 'react';
+/**
+ * ************************************
+ *
+ * @module  App.jsx
+ * @author  mpeters
+ * @date    09/30/2020
+ * @description Weather application root
+ * component
+ *
+ * ************************************
+ */
 
-const App = () => {
-  return (
-    <div>
-      <h1>WORKING</h1>
-    </div>
-  );
-};
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default App;
+import * as actions from '../state/actions/actions';
+
+const mapStateToProps = (store) => ({
+  locationData: store.locationData,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchedWeather: () => {
+    dispatch(actions.getWeather());
+  },
+  updateLocation: () => {
+    dispatch(actions.updateLocation());
+  },
+});
+
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchedWeather();
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>WORKING</h1>
+      </div>
+    );
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
