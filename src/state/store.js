@@ -15,7 +15,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import reducer from './reducers/weatherDataReducer';
+import reducers from './reducers/combinedReducers';
 import saga from './sagas/saga';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -23,7 +23,7 @@ const sagaMiddleware = createSagaMiddleware();
 // createStore only takes one 'enhancer function', combined applyMiddleware() and
 // composeWithDevTools() with 'compose()'.
 const store = createStore(
-  reducer,
+  reducers,
   compose(applyMiddleware(sagaMiddleware), composeWithDevTools())
 );
 

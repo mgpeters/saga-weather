@@ -17,8 +17,7 @@ import WeatherDisplay from './WeatherDisplay.jsx';
 
 const App = () => {
   return (
-    <section>
-      <h1>WORKING</h1>
+    <section className="main-container">
       <SideNav />
       <WeatherDisplay />
     </section>

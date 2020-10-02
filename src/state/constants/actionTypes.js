@@ -9,7 +9,11 @@
  * ************************************
  */
 
+// Weather Data Action Types
 export const FETCH_WEATHER_BY_LOCATION = 'FETCH_WEATHER_BY_LOCATION';
 export const FETCH_WEATHER_SUCCEEDED = 'FETCH_WEATHER_SUCCEEDED';
 export const FETCH_WEATHER_FAILED = 'FETCH_WEATHER_FAILED';
 export const UPDATE_LOCATION = 'UPDATE_LOCATION';
+
+// Navbar Action Types
+export const NAVBAR_TOGGLE = 'NAVBAR_TOGGLE';

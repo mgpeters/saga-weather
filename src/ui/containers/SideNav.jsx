@@ -43,11 +43,13 @@ class SideNav extends Component {
     document.title = this.props.currentLocation;
   }
 
+  toggleNavExpansion() {}
+
   render() {
     return (
-      <nav>
-        <h1>WORKING</h1>
-        <div className="location-list">
+      <nav className="navbar">
+        <h1>Select A Location</h1>
+        <div className="navbar--location-list">
           {this.props.locations.map((location) => (
             <LocationNavButton
               key={`${location}-key`}
@@ -55,10 +57,8 @@ class SideNav extends Component {
             />
           ))}
         </div>
-        <div className="">
-          {
-            // <ExpandButton />
-          }
+        <div className="navbar--expand-button">
+          <ExpandButton />
         </div>
       </nav>
     );
