@@ -42,7 +42,7 @@ class SideNav extends Component {
     return (
       <nav
         className="navbar"
-        style={{ width: this.props.navBarExpanded ? '400px' : '300px' }}
+        style={{ width: this.props.navBarExpanded ? '300px' : '30px' }}
       >
         <div className="navbar--location-list">
           {this.props.locations.map((location) => (
