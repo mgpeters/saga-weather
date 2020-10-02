@@ -21,16 +21,13 @@ import styles from '../../styles/containers/SideNav.scss';
 import * as actions from '../../state/actions/actions';
 
 const mapStateToProps = (store) => ({
-  currentLocation: store.currentLocation,
-  locations: store.locations,
+  locations: store.nav.locations,
+  navBarExpanded: store.nav.navBarExpanded,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchWeather: (location) => {
-    dispatch(actions.getWeather(location));
-  },
-  updateLocation: () => {
-    dispatch(actions.updateLocation());
+  toggleNavbar: () => {
+    dispatch(actions.toggleNavbar());
   },
 });
 
@@ -40,10 +37,8 @@ class SideNav extends Component {
   }
 
   componentDidUpdate() {
-    document.title = this.props.currentLocation;
+    // document.title = this.props.currentLocation;
   }
-
-  toggleNavExpansion() {}
 
   render() {
     return (
@@ -58,7 +53,7 @@ class SideNav extends Component {
           ))}
         </div>
         <div className="navbar--expand-button">
-          <ExpandButton />
+          <ExpandButton toggle={this.props.toggleNavbar} />
         </div>
       </nav>
     );

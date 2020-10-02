@@ -17,20 +17,16 @@ const initialState = {
   navBarExpanded: false,
 };
 
-const weatherDataReducer = (state = initialState, action) => {
-  const locationState = {
-    ...state.locationData,
-  };
-
+const navBarReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.FETCH_WEATHER_BY_LOCATION:
+    case types.NAVBAR_TOGGLE:
       return {
         ...state,
-        loading: true,
+        navBarExpanded: !state.navBarExpanded,
       };
     default:
       return state;
   }
 };
 
-export default weatherDataReducer;
+export default navBarReducer;

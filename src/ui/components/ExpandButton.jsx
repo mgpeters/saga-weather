@@ -17,7 +17,7 @@ import styles from '../../styles/components/ExpandButton.scss';
 const ExpandButton = (props) => {
   return (
     <div className="navbar--location-list__toggle">
-      <button>Expand Button</button>
+      <button onClick={() => props.toggle()}>Expand Button</button>
     </div>
   );
 };

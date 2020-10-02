@@ -14,7 +14,6 @@ import * as types from '../constants/actionTypes';
 
 const initialState = {
   currentLocation: 'Weather App',
-  locations: ['New York, NY', 'Miami, FL', 'LosAngeles, CA'],
   locationData: {},
 };
 

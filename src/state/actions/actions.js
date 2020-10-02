@@ -11,6 +11,7 @@
 
 import * as types from '../constants/actionTypes';
 
+// Weather Data Actions
 export const getWeather = (location) => ({
   type: types.FETCH_WEATHER_BY_LOCATION,
   payload: location,
@@ -19,4 +20,10 @@ export const getWeather = (location) => ({
 export const updateLocation = (location) => ({
   type: types.UPDATE_LOCATION,
   payload: location,
+});
+
+// Navbar Actions
+
+export const toggleNavbar = () => ({
+  type: types.NAVBAR_TOGGLE,
 });
