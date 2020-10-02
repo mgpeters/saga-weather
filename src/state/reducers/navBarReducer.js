@@ -15,6 +15,7 @@ import * as types from '../constants/actionTypes';
 const initialState = {
   locations: ['New York, NY', 'Miami, FL', 'LosAngeles, CA'],
   navBarExpanded: false,
+  searchedLocation: '',
 };
 
 const navBarReducer = (state = initialState, action) => {
@@ -23,6 +24,11 @@ const navBarReducer = (state = initialState, action) => {
       return {
         ...state,
         navBarExpanded: !state.navBarExpanded,
+      };
+    case types.HANDLE_SEARCH_CHANGE:
+      return {
+        ...state,
+        searchedLocation: action.payload,
       };
     default:
       return state;

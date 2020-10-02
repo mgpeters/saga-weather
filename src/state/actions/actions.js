@@ -23,7 +23,11 @@ export const updateLocation = (location) => ({
 });
 
 // Navbar Actions
-
 export const toggleNavbar = () => ({
   type: types.NAVBAR_TOGGLE,
+});
+
+export const handleSearchChange = (input) => ({
+  type: types.HANDLE_SEARCH_CHANGE,
+  payload: input,
 });
