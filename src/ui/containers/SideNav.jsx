@@ -42,9 +42,8 @@ class SideNav extends Component {
     return (
       <nav
         className="navbar"
-        style={{ width: this.props.navBarExpanded ? '200px' : '100px' }}
+        style={{ width: this.props.navBarExpanded ? '400px' : '300px' }}
       >
-        <h1>Select A Location</h1>
         <div className="navbar--location-list">
           {this.props.locations.map((location) => (
             <LocationNavButton
