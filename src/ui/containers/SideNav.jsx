@@ -36,13 +36,14 @@ class SideNav extends Component {
     // this.props.fetchWeather('newyork');
   }
 
-  componentDidUpdate() {
-    // document.title = this.props.currentLocation;
-  }
+  componentDidUpdate() {}
 
   render() {
     return (
-      <nav className="navbar">
+      <nav
+        className="navbar"
+        style={{ width: this.props.navBarExpanded ? '200px' : '100px' }}
+      >
         <h1>Select A Location</h1>
         <div className="navbar--location-list">
           {this.props.locations.map((location) => (

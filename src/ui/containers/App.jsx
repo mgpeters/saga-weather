@@ -10,7 +10,7 @@
  * ************************************
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import SideNav from './SideNav.jsx';
 import WeatherDisplay from './WeatherDisplay.jsx';
