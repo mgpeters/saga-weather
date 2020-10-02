@@ -14,44 +14,35 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // import styles from '../../styles/components/LocationNavButton.scss';
-import * as actions from '../../state/actions/actions';
+import {
+  searchNewLocation,
+  handleSearchChange,
+} from '../../state/actions/actions';
 
 const mapStateToProps = (store) => ({
   searchedLocation: store.nav.searchedLocation,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  searchLocation: (input) => {
-    dispatch(actions.handleSearchChange(input));
+  handleSearchChange: (input) => {
+    dispatch(handleSearchChange(input));
+  },
+  searchNewLocation: (input) => {
+    dispatch(searchNewLocation(input));
   },
 });
 
 class LocationSearch extends Component {
-  // constructor(props) {
-  //   // super(props);
-  //   // this.handleChange = this.handleChange.bind(this);
-  //   // this.handleSubmit = this.handleSubmit.bind(this);
-  //   this.searchLocation = this.searchLocation.bind(this);
-  // }
-
-  // handleChange(event, props) {
-  //   console.log(props);
-  //   console.log(event.target.value);
-  //   // this.setState({ value: event.target.value });
-  //   this.props.searchLocation(event.target.value);
-  // }
-
-  handleSubmit(event) {
-    // alert(`A name was submitted: ${this.state.value}`);
-    console.log('submitted');
-    event.preventDefault();
-  }
-
   render() {
     console.log(this.props);
     return (
       <div className="navbar--location-search">
-        <form onSubmit={this.handleSubmit}>
+        <form
+          onSubmit={(event) => {
+            this.props.searchNewLocation(this.props.searchedLocation);
+            event.preventDefault();
+          }}
+        >
           <label htmlFor="location-search">
             Search Additional Location
             <input
@@ -61,7 +52,7 @@ class LocationSearch extends Component {
               placeholder="Location, City"
               value={this.props.searchedLocation}
               onChange={(event) =>
-                this.props.searchLocation(event.target.value)
+                this.props.handleSearchChange(event.target.value)
               }
             />
           </label>

@@ -31,3 +31,8 @@ export const handleSearchChange = (input) => ({
   type: types.HANDLE_SEARCH_CHANGE,
   payload: input,
 });
+
+export const searchNewLocation = (input) => ({
+  type: types.SEARCH_NEW_LOCATION,
+  payload: input,
+});

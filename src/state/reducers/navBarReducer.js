@@ -30,6 +30,11 @@ const navBarReducer = (state = initialState, action) => {
         ...state,
         searchedLocation: action.payload,
       };
+    case types.SEARCH_NEW_LOCATION:
+      console.log('search', action.payload);
+      return {
+        ...state,
+      };
     default:
       return state;
   }
