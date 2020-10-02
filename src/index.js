@@ -12,16 +12,18 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 
-import App from './ui/containers/App/App.jsx';
+import ProviderWrapper from './ui/wrappers/ProviderWrapper.jsx';
+
+import App from './ui/containers/App.jsx';
 import store from './state/store';
 
 import styles from './styles/styles.scss';
 
 render(
-  <Provider store={store}>
+  <ProviderWrapper store={store}>
     <App />
-  </Provider>,
+  </ProviderWrapper>,
   document.getElementById('root')
 );

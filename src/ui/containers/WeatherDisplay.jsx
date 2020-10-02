@@ -1,11 +1,11 @@
 /**
  * ************************************
  *
- * @module  App.jsx
+ * @module  WeatherDisplay.jsx
  * @author  mpeters
- * @date    09/30/2020
- * @description Weather application root
- * component
+ * @date    10/02/2020
+ * @description Weather application Weather Data
+ * Display component
  *
  * ************************************
  */
@@ -14,8 +14,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import styles from '../../../styles/containers/App.scss';
-import * as actions from '../../../state/actions/actions';
+import styles from '../../styles/containers/App.scss';
+import * as actions from '../../state/actions/actions';
 
 const mapStateToProps = (store) => ({
   currentLocation: store.currentLocation,
@@ -32,9 +32,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-class App extends Component {
+class WeatherDisplay extends Component {
   componentDidMount() {
-    this.props.fetchWeather('newyork');
+    // this.props.fetchWeather('newyork');
   }
 
   componentDidUpdate() {
@@ -43,17 +43,17 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <section>
         <h1>WORKING</h1>
-      </div>
+      </section>
     );
   }
 }
 
-App.propTypes = {
+WeatherDisplay.propTypes = {
   currentLocation: PropTypes.string,
   locations: PropTypes.arrayOf(PropTypes.string),
   locationData: PropTypes.object,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherDisplay);

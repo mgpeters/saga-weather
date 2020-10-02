@@ -1,11 +1,14 @@
 import React from 'react';
-import Provider from '../../../util/Provider';
+import ProviderWrapper from '../ui/wrappers/ProviderWrapper.jsx';
 
-import store from '../../../state/store';
+import store from '../state/store';
 
-import App from './App.jsx';
+import App from '../ui/containers/App';
 
-const withProvider = (story) => <Provider store={store}>{story()}</Provider>;
+// Decorator for redux and react-router
+const withProvider = (story) => (
+  <ProviderWrapper store={store}>{story()}</ProviderWrapper>
+);
 
 export default {
   title: 'Containers/App',
