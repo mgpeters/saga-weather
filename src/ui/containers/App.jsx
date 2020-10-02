@@ -10,15 +10,15 @@
  * ************************************
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 
-import SideNav from './SideNav.jsx';
+import Nav from './Nav.jsx';
 import WeatherDisplay from './WeatherDisplay.jsx';
 
 const App = () => {
   return (
     <section className="main-container">
-      <SideNav />
+      <Nav />
       <WeatherDisplay />
     </section>
   );

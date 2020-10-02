@@ -14,10 +14,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import LocationNavButton from '../components/LocationNavButton.jsx';
+import LocationNav from '../components/LocationNav.jsx';
 import ExpandButton from '../components/ExpandButton.jsx';
 
-import styles from '../../styles/containers/SideNav.scss';
+import styles from '../../styles/containers/Nav.scss';
 import * as actions from '../../state/actions/actions';
 
 const mapStateToProps = (store) => ({
@@ -44,17 +44,8 @@ class SideNav extends Component {
         className="navbar"
         style={{ width: this.props.navBarExpanded ? '300px' : '30px' }}
       >
-        <div className="navbar--location-list">
-          {this.props.locations.map((location) => (
-            <LocationNavButton
-              key={`${location}-key`}
-              locationName={location}
-            />
-          ))}
-        </div>
-        <div className="navbar--expand-button">
-          <ExpandButton toggle={this.props.toggleNavbar} />
-        </div>
+        <LocationNav locations={this.props.locations} />
+        <ExpandButton toggle={this.props.toggleNavbar} />
       </nav>
     );
   }

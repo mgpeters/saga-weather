@@ -14,15 +14,11 @@ import React from 'react';
 
 import styles from '../../styles/components/ExpandButton.scss';
 
-import expandIcon from '../../util/images/expand-icon.png';
-
-console.log(expandIcon);
-
 const ExpandButton = (props) => {
   return (
     <div className="navbar--location-list__toggle">
       <button onClick={() => props.toggle()}>
-        <span>Additional Locations</span>
+        <span>Locations</span>
       </button>
     </div>
   );

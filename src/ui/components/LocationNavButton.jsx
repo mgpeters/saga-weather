@@ -1,7 +1,7 @@
 /**
  * ************************************
  *
- * @module  CityNavButton.jsx
+ * @module  LocationNavButton.jsx
  * @author  mpeters
  * @date    10/02/2020
  * @description Location NavBar Buttons
