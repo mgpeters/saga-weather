@@ -35,6 +35,14 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+// const formatDate = (timestamp) => {
+//   const date = new Date(timestamp * 1000);
+//   const hours = date.getHours();
+//   const minutes = date.getMinutes();
+
+//   return `${hours}: ${minutes.substr(-2)}`;
+// };
+
 class WeatherDisplay extends Component {
   componentDidMount() {
     this.props.fetchWeather('newyork');
@@ -46,18 +54,25 @@ class WeatherDisplay extends Component {
     // document.title = this.props.currentLocation;
   }
 
+  formatHours(timestamp) {
+    const date = new Date(timestamp * 1000);
+    const hours = '0' + date.getHours();
+    const minutes = '0' + date.getMinutes();
+
+    return `${hours}: ${minutes.substr(-2)}`;
+  }
+
   render() {
-    return (
+    return this.props.currentLocation ? (
       <section>
         <LocationTitle currentLocation={this.props.currentLocation} />
-        {/*<CurrentWeather
-          currentWeather={
-            this.props.locationData.newyorkcity.weatherData.current
-              ? this.props.locationData.newyorkcity.weatherData.current
-              : {}
-          } */}
+        <CurrentWeather
+          formatTime={this.formatHours}
+          currentWeather={this.props.currentLocation.weatherData}
         />
       </section>
+    ) : (
+      <h1>Loading...</h1>
     );
   }
 }

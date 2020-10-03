@@ -14,11 +14,14 @@ import React from 'react';
 
 // import styles from '../../styles/components/LocationNavButton.scss';
 
-const CurrentWeather = ({ currentWeather }) => {
-  return (
+const CurrentWeather = ({ currentWeather, formatTime }) => {
+  console.log('current weather', currentWeather);
+  return currentWeather ? (
     <div className="weather-display--current-weather">
-      <h2>Date: {currentWeather.dt}</h2>
+      <h2>{formatTime(currentWeather.current.dt)}</h2>
     </div>
+  ) : (
+    <h2>Loading...</h2>
   );
 };
 
