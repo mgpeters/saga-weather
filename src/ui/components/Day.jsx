@@ -15,9 +15,15 @@ import PropTypes from 'prop-types';
 
 import styles from '../../styles/components/Day.scss';
 
-const Day = ({ main, temp, date, weatherIcon }) => {
+const Day = ({ main, temp, date, weatherIcon, openModal }) => {
   return main ? (
-    <div className="weather-display--current-weather__daily-display--day">
+    <div
+      className="weather-display--current-weather__daily-display--day"
+      onClick={() => openModal()}
+      role="button"
+      tabIndex={0}
+      // onKeyUp={() => openModal()}
+    >
       <h4 className="weather-display--current-weather__daily-display--day__date">{`${date.weekday} - ${date.dateNoYear}`}</h4>
       <img
         className="weather-display--current-weather__daily-display--day__img"
@@ -36,6 +42,7 @@ Day.propTypes = {
   temp: PropTypes.number,
   date: PropTypes.object,
   weatherIcon: PropTypes.string,
+  openModal: PropTypes.func,
 };
 
 export default Day;

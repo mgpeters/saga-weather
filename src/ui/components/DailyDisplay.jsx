@@ -17,7 +17,7 @@ import Day from './Day.jsx';
 
 import styles from '../../styles/components/DailyDisplay.scss';
 
-const DailyDisplay = ({ daily, weatherIcon, dailyDate }) => {
+const DailyDisplay = ({ daily, weatherIcon, dailyDate, openModal }) => {
   const dailyArray = [];
 
   // Only want the next 7 days
@@ -35,6 +35,7 @@ const DailyDisplay = ({ daily, weatherIcon, dailyDate }) => {
         temp={day}
         date={date}
         weatherIcon={weatherIcon(icon)}
+        openModal={openModal}
       />
     );
   }
@@ -52,6 +53,7 @@ DailyDisplay.propTypes = {
   daily: PropTypes.array,
   weatherIcon: PropTypes.func,
   dailyDate: PropTypes.func,
+  openModal: PropTypes.func,
 };
 
 export default DailyDisplay;

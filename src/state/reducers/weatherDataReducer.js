@@ -13,6 +13,7 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
+  showModal: false,
   // currentLocation: { name: 'Weather App' },
   // locationData: {},
 };
@@ -52,6 +53,13 @@ const weatherDataReducer = (state = initialState, action) => {
     case types.UPDATE_LOCATION:
       return {
         ...state,
+      };
+
+    case types.TOGGLE_MODAL:
+      console.log('Toggled Modal');
+      return {
+        ...state,
+        showModal: !state.showModal,
       };
 
     default:

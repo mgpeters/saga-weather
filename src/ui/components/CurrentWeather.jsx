@@ -28,7 +28,6 @@ const CurrentWeather = ({
 
   return currentWeather ? (
     <div className="weather-display--current-weather">
-      <h3>Current Weather</h3>
       <h3>
         <span>{`${currentDate().fullDate} - ${formatTime(dt)}`}</span>
       </h3>

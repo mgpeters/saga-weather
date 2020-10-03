@@ -18,6 +18,7 @@ import LocationTitle from '../components/LocationTitle.jsx';
 import CurrentWeather from '../components/CurrentWeather.jsx';
 import HourlyDisplay from '../components/HourlyDisplay.jsx';
 import DailyDisplay from '../components/DailyDisplay.jsx';
+import Loading from '../components/Loading.jsx';
 
 import styles from '../../styles/containers/WeatherDisplay.scss';
 import * as actions from '../../state/actions/actions';
@@ -26,6 +27,7 @@ const mapStateToProps = (store) => ({
   currentLocation: store.weather.currentLocation,
   locations: store.weather.locations,
   locationData: store.weather.locationData,
+  showModal: store.weather.showModal,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -35,9 +37,10 @@ const mapDispatchToProps = (dispatch) => ({
   updateLocation: () => {
     dispatch(actions.updateLocation());
   },
+  toggleModal: () => {
+    dispatch(actions.toggleModal());
+  },
 });
-
-const openModal = () => {};
 
 const formatHours = (timestamp) => {
   const date = new Date(timestamp * 1000);
@@ -102,10 +105,11 @@ class WeatherDisplay extends Component {
           dailyDate={getDate}
           formatTime={formatHours}
           weatherIcon={weatherIcon}
+          openModal={this.props.toggleModal}
         />
       </section>
     ) : (
-      <h1>Loading...</h1>
+      <Loading />
     );
   }
 }
@@ -114,6 +118,8 @@ WeatherDisplay.propTypes = {
   currentLocation: PropTypes.object,
   locations: PropTypes.arrayOf(PropTypes.string),
   locationData: PropTypes.object,
+  showModal: PropTypes.bool,
+  toggleModal: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherDisplay);
