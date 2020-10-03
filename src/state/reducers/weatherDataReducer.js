@@ -13,7 +13,7 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  // currentLocation: 'Weather App',
+  currentLocation: { name: 'Weather App' },
   // locationData: {},
 };
 

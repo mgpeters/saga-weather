@@ -43,7 +43,7 @@ class WeatherDisplay extends Component {
   }
 
   componentDidUpdate() {
-    document.title = this.props.currentLocation;
+    // document.title = this.props.currentLocation;
   }
 
   render() {

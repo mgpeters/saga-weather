@@ -23,7 +23,7 @@ const mapStateToProps = (store) => ({
 const mapDispatchToProps = (dispatch) => ({});
 class App extends Component {
   componentDidUpdate() {
-    document.title = this.props.currentLocation;
+    document.title = this.props.currentLocation.name;
   }
   render() {
     return (
