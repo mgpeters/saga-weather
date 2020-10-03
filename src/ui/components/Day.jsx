@@ -14,12 +14,11 @@ import React from 'react';
 
 // import styles from '../../styles/components/LocationNavButton.scss';
 
-const Day = ({ main, temp, day, weatherIcon }) => {
+const Day = ({ main, temp, date, weatherIcon }) => {
   return main ? (
     <div className="weather-display--current-weather__hourly-display--hourly">
+      <h4>{`${date.weekday} - ${date.dateNoYear}`}</h4>
       <img src={weatherIcon} alt={`${main}`}></img>
-      <h4>{day}</h4>
-      <h4>{main}</h4>
       <h4>{`${temp} F`}</h4>
     </div>
   ) : (

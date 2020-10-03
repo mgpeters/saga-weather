@@ -25,12 +25,14 @@ const DailyDisplay = ({ daily, weatherIcon, formatTime, dailyDate }) => {
     const { day } = daily[i].temp;
     const { icon, main } = daily[i].weather[0];
 
+    const date = dailyDate(dt);
+
     dailyArray.push(
       <Day
         key={`daily-key${i}`}
         main={main}
         temp={day}
-        day={dailyDate(dt).weekday}
+        date={date}
         weatherIcon={weatherIcon(icon)}
       />
     );

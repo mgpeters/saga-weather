@@ -53,19 +53,15 @@ const formatHours = (timestamp) => {
 
 const getDate = (day = null, locale = 'en-US') => {
   const dayObj = {};
-
   const today = !day ? new Date() : new Date(day * 1000);
-  const dd = String(today.getDate()).padStart(2, '0');
-  const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-  const yyyy = today.getFullYear();
-  const weekday = today.toLocaleDateString(locale, { weekday: 'long' });
 
-  dayObj.weekday = weekday;
-  dayObj.day = dd;
-  dayObj.month = mm;
-  dayObj.year = yyyy;
-  dayObj.date = `${mm}/${dd}/${yyyy}`;
-  dayObj.fullDate = `${weekday} ${mm}/${dd}/${yyyy}`;
+  dayObj.weekday = today.toLocaleDateString(locale, { weekday: 'long' });
+  dayObj.day = String(today.getDate()).padStart(2, '0');
+  dayObj.month = String(today.getMonth() + 1).padStart(2, '0');
+  dayObj.year = today.getFullYear();
+  dayObj.date = `${dayObj.month}/${dayObj.day}/${dayObj.year}`;
+  dayObj.dateNoYear = `${dayObj.month}/${dayObj.day}`;
+  dayObj.fullDate = `${dayObj.weekday} ${dayObj.month}/${dayObj.day}/${dayObj.year}`;
 
   return dayObj;
 };
