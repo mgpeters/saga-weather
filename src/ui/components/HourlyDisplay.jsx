@@ -13,7 +13,7 @@
 import React from 'react';
 
 import Hourly from './Hourly.jsx';
-// import styles from '../../styles/components/LocationNavButton.scss';
+import styles from '../../styles/components/HourlyDisplay.scss';
 
 const HourlyDisplay = ({ hourly, weatherIcon, formatTime }) => {
   const hourlyArray = [];

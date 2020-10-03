@@ -12,7 +12,7 @@
 
 import React from 'react';
 
-// import styles from '../../styles/components/LocationNavButton.scss';
+import styles from '../../styles/components/CurrentWeather.scss';
 
 const CurrentWeather = ({
   currentWeather,
