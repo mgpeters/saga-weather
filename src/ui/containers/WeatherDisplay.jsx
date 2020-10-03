@@ -5,7 +5,7 @@
  * @author  mpeters
  * @date    10/02/2020
  * @description Weather application Weather Data
- * Display component
+ * Display container
  *
  * ************************************
  */
@@ -19,7 +19,7 @@ import CurrentWeather from '../components/CurrentWeather.jsx';
 import HourlyDisplay from '../components/HourlyDisplay.jsx';
 import DailyDisplay from '../components/DailyDisplay.jsx';
 
-import styles from '../../styles/containers/App.scss';
+import styles from '../../styles/containers/WeatherDisplay.scss';
 import * as actions from '../../state/actions/actions';
 
 const mapStateToProps = (store) => ({
@@ -36,6 +36,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(actions.updateLocation());
   },
 });
+
+const openModal = () => {};
 
 const formatHours = (timestamp) => {
   const date = new Date(timestamp * 1000);
@@ -82,7 +84,7 @@ class WeatherDisplay extends Component {
 
   render() {
     return this.props.currentLocation ? (
-      <section>
+      <section className="weather-display">
         <LocationTitle currentLocation={this.props.currentLocation} />
         <CurrentWeather
           currentDate={getDate}

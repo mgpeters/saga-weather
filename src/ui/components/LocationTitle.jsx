@@ -12,7 +12,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styles from '../../styles/components/LocationNavButton.scss';
+
+import styles from '../../styles/components/LocationTitle.scss';
 
 const LocationTitle = ({ currentLocation }) => {
   return currentLocation ? (
