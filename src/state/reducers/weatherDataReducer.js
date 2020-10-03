@@ -30,7 +30,7 @@ const weatherDataReducer = (state = initialState, action) => {
       };
 
     case types.FETCH_WEATHER_SUCCEEDED:
-      locationState[action.locationData.name] = action.locationData;
+      locationState[action.locationData.keyName] = action.locationData;
 
       return {
         ...state,

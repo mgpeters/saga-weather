@@ -29,7 +29,10 @@ function* fetchData(action) {
     ? locations[action.payload]
     : action.newLocationObj;
 
+  const keyName = name.replace(/\s/g, '').toLowerCase();
+
   const locationData = {
+    keyName,
     name,
     state,
     country,
