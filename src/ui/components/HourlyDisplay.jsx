@@ -11,6 +11,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Hourly from './Hourly.jsx';
 import styles from '../../styles/components/HourlyDisplay.scss';
@@ -41,6 +42,12 @@ const HourlyDisplay = ({ hourly, weatherIcon, formatTime }) => {
   ) : (
     <h2>Loading...</h2>
   );
+};
+
+HourlyDisplay.propTypes = {
+  hourly: PropTypes.array,
+  weatherIcon: PropTypes.func,
+  formatTime: PropTypes.func,
 };
 
 export default HourlyDisplay;

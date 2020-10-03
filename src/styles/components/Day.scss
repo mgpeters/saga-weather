@@ -1,0 +1,14 @@
+.weather-display--current-weather__daily-display--day {
+  display: flex;
+  flex-direction: row;
+  // align-items: center;
+  justify-content: space-evenly;
+  // width: 500px;
+  .weather-display--current-weather__daily-display--day__date {
+    // float: left;
+  }
+  .weather-display--current-weather__daily-display--day__img {
+  }
+  .weather-display--current-weather__daily-display--day__temp {
+  }
+}

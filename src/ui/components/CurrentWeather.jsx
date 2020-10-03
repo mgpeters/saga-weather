@@ -11,6 +11,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from '../../styles/components/CurrentWeather.scss';
 
@@ -38,6 +39,13 @@ const CurrentWeather = ({
   ) : (
     <h2>Loading...</h2>
   );
+};
+
+CurrentWeather.propTypes = {
+  currentWeather: PropTypes.object,
+  currentDate: PropTypes.func,
+  formatTime: PropTypes.func,
+  weatherIcon: PropTypes.func,
 };
 
 export default CurrentWeather;

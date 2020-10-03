@@ -11,12 +11,13 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Day from './Day.jsx';
 
 import styles from '../../styles/components/DailyDisplay.scss';
 
-const DailyDisplay = ({ daily, weatherIcon, formatTime, dailyDate }) => {
+const DailyDisplay = ({ daily, weatherIcon, dailyDate }) => {
   const dailyArray = [];
 
   // Only want the next 7 days
@@ -45,6 +46,12 @@ const DailyDisplay = ({ daily, weatherIcon, formatTime, dailyDate }) => {
   ) : (
     <h2>Loading...</h2>
   );
+};
+
+DailyDisplay.propTypes = {
+  daily: PropTypes.array,
+  weatherIcon: PropTypes.func,
+  dailyDate: PropTypes.func,
 };
 
 export default DailyDisplay;

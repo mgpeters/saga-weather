@@ -11,19 +11,31 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// import styles from '../../styles/components/LocationNavButton.scss';
+import styles from '../../styles/components/Day.scss';
 
 const Day = ({ main, temp, date, weatherIcon }) => {
   return main ? (
-    <div className="weather-display--current-weather__hourly-display--hourly">
-      <h4>{`${date.weekday} - ${date.dateNoYear}`}</h4>
-      <img src={weatherIcon} alt={`${main}`}></img>
-      <h4>{`${temp} F`}</h4>
+    <div className="weather-display--current-weather__daily-display--day">
+      <h4 className="weather-display--current-weather__daily-display--day__date">{`${date.weekday} - ${date.dateNoYear}`}</h4>
+      <img
+        className="weather-display--current-weather__daily-display--day__img"
+        src={weatherIcon}
+        alt={`${main}`}
+      ></img>
+      <h4 className="weather-display--current-weather__daily-display--day__temp">{`${temp} F`}</h4>
     </div>
   ) : (
     <h2>Loading...</h2>
   );
+};
+
+Day.propTypes = {
+  main: PropTypes.string,
+  temp: PropTypes.number,
+  date: PropTypes.object,
+  weatherIcon: PropTypes.string,
 };
 
 export default Day;

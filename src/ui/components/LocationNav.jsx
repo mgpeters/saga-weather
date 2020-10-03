@@ -11,6 +11,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import LocationSearch from '../components/LocationSearch.jsx';
 import LocationNavButton from '../components/LocationNavButton.jsx';
@@ -26,6 +27,10 @@ const LocationNav = ({ locations }) => {
       ))}
     </div>
   );
+};
+
+LocationNav.propTypes = {
+  locations: PropTypes.array,
 };
 
 export default LocationNav;

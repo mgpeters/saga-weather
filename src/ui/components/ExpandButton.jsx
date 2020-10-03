@@ -11,6 +11,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from '../../styles/components/ExpandButton.scss';
 
@@ -22,6 +23,10 @@ const ExpandButton = (props) => {
       </button>
     </div>
   );
+};
+
+ExpandButton.propTypes = {
+  toggle: PropTypes.func,
 };
 
 export default ExpandButton;

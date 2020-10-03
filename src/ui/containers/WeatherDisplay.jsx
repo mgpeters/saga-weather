@@ -21,7 +21,6 @@ import DailyDisplay from '../components/DailyDisplay.jsx';
 
 import styles from '../../styles/containers/App.scss';
 import * as actions from '../../state/actions/actions';
-import Day from '../components/Day.jsx';
 
 const mapStateToProps = (store) => ({
   currentLocation: store.weather.currentLocation,

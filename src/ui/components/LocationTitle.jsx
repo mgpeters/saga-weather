@@ -11,7 +11,7 @@
  */
 
 import React from 'react';
-
+import PropTypes from 'prop-types';
 // import styles from '../../styles/components/LocationNavButton.scss';
 
 const LocationTitle = ({ currentLocation }) => {
@@ -22,6 +22,10 @@ const LocationTitle = ({ currentLocation }) => {
   ) : (
     <h1>Loading...</h1>
   );
+};
+
+LocationTitle.propTypes = {
+  currentLocation: PropTypes.object,
 };
 
 export default LocationTitle;

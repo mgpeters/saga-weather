@@ -11,6 +11,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // import styles from '../../styles/components/LocationNavButton.scss';
@@ -61,5 +62,11 @@ class LocationSearch extends Component {
     );
   }
 }
+
+LocationSearch.propTypes = {
+  searchedLocation: PropTypes.string,
+  handleSearchChange: PropTypes.func,
+  searchNewLocation: PropTypes.func,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationSearch);
