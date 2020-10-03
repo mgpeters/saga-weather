@@ -14,11 +14,16 @@ import React from 'react';
 
 // import styles from '../../styles/components/LocationNavButton.scss';
 
-const CurrentWeather = ({ currentWeather, currentDate, formatTime }) => {
+const CurrentWeather = ({
+  currentWeather,
+  currentDate,
+  formatTime,
+  weatherIcon,
+}) => {
   console.log('current weather', currentWeather);
 
-  const { dt, temp } = currentWeather.current;
-  const { icon, main } = currentWeather.current.weather[0];
+  const { dt, temp } = currentWeather;
+  const { icon, description, main } = currentWeather.weather[0];
 
   return currentWeather ? (
     <div className="weather-display--current-weather">
@@ -26,10 +31,7 @@ const CurrentWeather = ({ currentWeather, currentDate, formatTime }) => {
         <span>{`${currentDate()} - ${formatTime(dt)}`}</span>
       </h2>
       <h2>{`${temp} F`}</h2>
-      <img
-        src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-        alt="current weather icon"
-      ></img>
+      <img src={weatherIcon(icon)} alt={`${main} - ${description}`}></img>
       <h2>{main}</h2>
     </div>
   ) : (

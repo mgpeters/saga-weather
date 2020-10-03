@@ -16,6 +16,7 @@ import PropTypes from 'prop-types';
 
 import LocationTitle from '../components/LocationTitle.jsx';
 import CurrentWeather from '../components/CurrentWeather.jsx';
+import HourlyDisplay from '../components/HourlyDisplay.jsx';
 
 import styles from '../../styles/containers/App.scss';
 import * as actions from '../../state/actions/actions';
@@ -57,6 +58,10 @@ const currentDate = () => {
   return `${mm} / ${dd} / ${yyyy}`;
 };
 
+const weatherIcon = (icon) => {
+  return `http://openweathermap.org/img/wn/${icon}@2x.png`;
+};
+
 class WeatherDisplay extends Component {
   componentDidMount() {
     this.props.fetchWeather('newyork');
@@ -75,7 +80,13 @@ class WeatherDisplay extends Component {
         <CurrentWeather
           currentDate={currentDate}
           formatTime={formatHours}
-          currentWeather={this.props.currentLocation.weatherData}
+          currentWeather={this.props.currentLocation.weatherData.current}
+          weatherIcon={weatherIcon}
+        />
+        <HourlyDisplay
+          hourly={this.props.currentLocation.weatherData.hourly}
+          formatTime={formatHours}
+          weatherIcon={weatherIcon}
         />
       </section>
     ) : (
