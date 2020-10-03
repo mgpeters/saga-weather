@@ -1,0 +1,28 @@
+/**
+ * ************************************
+ *
+ * @module  LocationTitle.jsx
+ * @author  mpeters
+ * @date    10/03/2020
+ * @description Location header title component
+ *
+ *
+ * ************************************
+ */
+
+import React from 'react';
+
+// import styles from '../../styles/components/LocationNavButton.scss';
+
+const LocationTitle = ({ currentLocation }) => {
+  console.log(currentLocation);
+  return currentLocation ? (
+    <div className="weather-display--location-title">
+      <h1>{`${currentLocation.name}, ${currentLocation.state}, ${currentLocation.country}`}</h1>
+    </div>
+  ) : (
+    <h1>Loading...</h1>
+  );
+};
+
+export default LocationTitle;

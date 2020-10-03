@@ -13,7 +13,7 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  currentLocation: 'Weather App',
+  // currentLocation: 'Weather App',
   // locationData: {},
 };
 
@@ -35,7 +35,8 @@ const weatherDataReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        currentLocation: `${action.locationData.name}, ${action.locationData.state}`,
+        //currentLocation: `${action.locationData.name}, ${action.locationData.state}`,
+        currentLocation: action.locationData,
         locationData: locationState,
       };
 
