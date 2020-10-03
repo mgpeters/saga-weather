@@ -19,7 +19,7 @@ const HourlyDisplay = ({ hourly, weatherIcon, formatTime }) => {
   const hourlyArray = [];
 
   // Only want the next 6 hours
-  for (let i = 0; i < 6; i += 1) {
+  for (let i = 1; i < 7; i += 1) {
     const { dt, temp } = hourly[i];
     const { icon, main } = hourly[i].weather[0];
 

@@ -29,7 +29,7 @@ const CurrentWeather = ({
     <div className="weather-display--current-weather">
       <h3>Current Weather</h3>
       <h3>
-        <span>{`${currentDate()} - ${formatTime(dt)}`}</span>
+        <span>{`${currentDate().fullDate} - ${formatTime(dt)}`}</span>
       </h3>
       <h3>{`${temp} F`}</h3>
       <img src={weatherIcon(icon)} alt={`${main} - ${description}`}></img>

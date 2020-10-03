@@ -17,9 +17,11 @@ import PropTypes from 'prop-types';
 import LocationTitle from '../components/LocationTitle.jsx';
 import CurrentWeather from '../components/CurrentWeather.jsx';
 import HourlyDisplay from '../components/HourlyDisplay.jsx';
+import DailyDisplay from '../components/DailyDisplay.jsx';
 
 import styles from '../../styles/containers/App.scss';
 import * as actions from '../../state/actions/actions';
+import Day from '../components/Day.jsx';
 
 const mapStateToProps = (store) => ({
   currentLocation: store.weather.currentLocation,
@@ -49,13 +51,23 @@ const formatHours = (timestamp) => {
   return `${hours}:${minutes.substr(-2)} ${ampm}`;
 };
 
-const currentDate = () => {
-  const today = new Date();
+const getDate = (day = null, locale = 'en-US') => {
+  const dayObj = {};
+
+  const today = !day ? new Date() : new Date(day * 1000);
   const dd = String(today.getDate()).padStart(2, '0');
   const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
   const yyyy = today.getFullYear();
+  const weekday = today.toLocaleDateString(locale, { weekday: 'long' });
 
-  return `${mm} / ${dd} / ${yyyy}`;
+  dayObj.weekday = weekday;
+  dayObj.day = dd;
+  dayObj.month = mm;
+  dayObj.year = yyyy;
+  dayObj.date = `${mm}/${dd}/${yyyy}`;
+  dayObj.fullDate = `${weekday} ${mm}/${dd}/${yyyy}`;
+
+  return dayObj;
 };
 
 const weatherIcon = (icon) => {
@@ -78,13 +90,19 @@ class WeatherDisplay extends Component {
       <section>
         <LocationTitle currentLocation={this.props.currentLocation} />
         <CurrentWeather
-          currentDate={currentDate}
+          currentDate={getDate}
           formatTime={formatHours}
           currentWeather={this.props.currentLocation.weatherData.current}
           weatherIcon={weatherIcon}
         />
         <HourlyDisplay
           hourly={this.props.currentLocation.weatherData.hourly}
+          formatTime={formatHours}
+          weatherIcon={weatherIcon}
+        />
+        <DailyDisplay
+          daily={this.props.currentLocation.weatherData.daily}
+          dailyDate={getDate}
           formatTime={formatHours}
           weatherIcon={weatherIcon}
         />
