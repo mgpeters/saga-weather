@@ -15,7 +15,6 @@ import React from 'react';
 // import styles from '../../styles/components/LocationNavButton.scss';
 
 const LocationTitle = ({ currentLocation }) => {
-  console.log(currentLocation);
   return currentLocation ? (
     <div className="weather-display--location-title">
       <h1>{`${currentLocation.name}, ${currentLocation.state}, ${currentLocation.country}`}</h1>

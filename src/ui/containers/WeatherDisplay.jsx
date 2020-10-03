@@ -35,13 +35,27 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-// const formatDate = (timestamp) => {
-//   const date = new Date(timestamp * 1000);
-//   const hours = date.getHours();
-//   const minutes = date.getMinutes();
+const formatHours = (timestamp) => {
+  const date = new Date(timestamp * 1000);
+  let hours = `${date.getHours()}`;
+  let minutes = `0${date.getMinutes()}`;
+  const ampm = hours >= 12 ? 'pm' : 'am';
 
-//   return `${hours}: ${minutes.substr(-2)}`;
-// };
+  hours %= 12;
+  hours = hours || 12;
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+
+  return `${hours}:${minutes.substr(-2)} ${ampm}`;
+};
+
+const currentDate = () => {
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  const yyyy = today.getFullYear();
+
+  return `${mm} / ${dd} / ${yyyy}`;
+};
 
 class WeatherDisplay extends Component {
   componentDidMount() {
@@ -54,20 +68,13 @@ class WeatherDisplay extends Component {
     // document.title = this.props.currentLocation;
   }
 
-  formatHours(timestamp) {
-    const date = new Date(timestamp * 1000);
-    const hours = '0' + date.getHours();
-    const minutes = '0' + date.getMinutes();
-
-    return `${hours}: ${minutes.substr(-2)}`;
-  }
-
   render() {
     return this.props.currentLocation ? (
       <section>
         <LocationTitle currentLocation={this.props.currentLocation} />
         <CurrentWeather
-          formatTime={this.formatHours}
+          currentDate={currentDate}
+          formatTime={formatHours}
           currentWeather={this.props.currentLocation.weatherData}
         />
       </section>

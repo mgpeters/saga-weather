@@ -40,7 +40,7 @@ function* fetchData(action) {
 
   try {
     const data = yield fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&exclude=minutely,alerts&appid=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&units=imperial&exclude=minutely,alerts&appid=${apiKey}`
     ).then((response) => response.json());
 
     yield (locationData.weatherData = data);
