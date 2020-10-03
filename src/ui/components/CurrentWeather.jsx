@@ -27,12 +27,13 @@ const CurrentWeather = ({
 
   return currentWeather ? (
     <div className="weather-display--current-weather">
-      <h2>
+      <h3>Current Weather</h3>
+      <h3>
         <span>{`${currentDate()} - ${formatTime(dt)}`}</span>
-      </h2>
-      <h2>{`${temp} F`}</h2>
+      </h3>
+      <h3>{`${temp} F`}</h3>
       <img src={weatherIcon(icon)} alt={`${main} - ${description}`}></img>
-      <h2>{main}</h2>
+      <h3>{main}</h3>
     </div>
   ) : (
     <h2>Loading...</h2>
