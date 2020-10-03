@@ -34,7 +34,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 class LocationSearch extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className="navbar--location-search">
         <form
@@ -49,7 +48,7 @@ class LocationSearch extends Component {
               type="text"
               id="location-search"
               name="location-search"
-              placeholder="Location, City"
+              placeholder="City, State, Country"
               value={this.props.searchedLocation}
               onChange={(event) =>
                 this.props.handleSearchChange(event.target.value)

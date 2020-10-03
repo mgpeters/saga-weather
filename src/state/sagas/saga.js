@@ -24,7 +24,10 @@ import api from '../../util/apiKeys';
 const apiKey = api ? api.openWeatherMap : undefined; // add key in place of 'undefined'
 
 function* fetchData(action) {
-  const { name, state, country, coord } = locations[action.payload];
+  console.log('detchdata test fired', action);
+  const { name, state, country, coord } = locations[action.payload]
+    ? locations[action.payload]
+    : action.newLocationObj;
 
   const locationData = {
     name,
@@ -39,16 +42,46 @@ function* fetchData(action) {
 
     yield (locationData.weatherData = data);
 
+    console.log(locationData);
+
     yield put({ type: types.FETCH_WEATHER_SUCCEEDED, locationData });
   } catch (error) {
     yield put({ type: types.FETCH_WEATHER_FAILED, message: error.message });
   }
 }
 
-function* mySaga() {
+function* fetchNewLocationData(action) {
+  const normalizedLocationString = action.payload.replace(/\s/g, '');
+  const locationNameArray = normalizedLocationString.split(',');
+
+  const newLocationObj = {
+    name: locationNameArray[0],
+    state: locationNameArray[1],
+    country: locationNameArray[2],
+  };
+
+  try {
+    const data = yield fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${normalizedLocationString}&appid=${apiKey}`
+    ).then((response) => response.json());
+
+    newLocationObj.coord = data.coord;
+    newLocationObj.id = data.id;
+
+    yield put({ type: types.FETCH_WEATHER_BY_LOCATION, newLocationObj });
+  } catch (error) {
+    yield put({ type: types.FETCH_WEATHER_FAILED, message: error.message });
+  }
+}
+
+function* fetchDataSaga() {
   yield takeEvery(types.FETCH_WEATHER_BY_LOCATION, fetchData);
 }
 
+function* fetchNewLocationLatLon() {
+  yield takeEvery(types.SEARCH_NEW_LOCATION, fetchNewLocationData);
+}
+
 export default function* rootSaga() {
-  yield all([mySaga()]);
+  yield all([fetchDataSaga(), fetchNewLocationLatLon()]);
 }
