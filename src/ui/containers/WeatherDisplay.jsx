@@ -35,6 +35,8 @@ const mapDispatchToProps = (dispatch) => ({
 class WeatherDisplay extends Component {
   componentDidMount() {
     this.props.fetchWeather('newyork');
+    this.props.fetchWeather('miami');
+    this.props.fetchWeather('losangeles');
   }
 
   componentDidUpdate() {

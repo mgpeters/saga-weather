@@ -65,8 +65,8 @@ function* fetchNewLocationData(action) {
       `https://api.openweathermap.org/data/2.5/weather?q=${normalizedLocationString}&appid=${apiKey}`
     ).then((response) => response.json());
 
-    newLocationObj.coord = data.coord;
-    newLocationObj.id = data.id;
+    yield (newLocationObj.coord = data.coord);
+    yield (newLocationObj.id = data.id);
 
     yield put({ type: types.FETCH_WEATHER_BY_LOCATION, newLocationObj });
   } catch (error) {

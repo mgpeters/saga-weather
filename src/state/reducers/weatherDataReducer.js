@@ -14,7 +14,7 @@ import * as types from '../constants/actionTypes';
 
 const initialState = {
   currentLocation: 'Weather App',
-  locationData: {},
+  // locationData: {},
 };
 
 const weatherDataReducer = (state = initialState, action) => {
