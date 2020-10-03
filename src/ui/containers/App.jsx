@@ -10,18 +10,29 @@
  * ************************************
  */
 
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Nav from './Nav.jsx';
 import WeatherDisplay from './WeatherDisplay.jsx';
 
-const App = () => {
-  return (
-    <section className="main-container">
-      <Nav />
-      <WeatherDisplay />
-    </section>
-  );
-};
+const mapStateToProps = (store) => ({
+  currentLocation: store.weather.currentLocation,
+});
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({});
+class App extends Component {
+  componentDidUpdate() {
+    document.title = this.props.currentLocation;
+  }
+  render() {
+    return (
+      <section className="main-container">
+        <Nav />
+        <WeatherDisplay />
+      </section>
+    );
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
