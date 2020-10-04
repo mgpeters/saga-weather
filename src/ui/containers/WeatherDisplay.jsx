@@ -19,6 +19,7 @@ import CurrentWeather from '../components/CurrentWeather.jsx';
 import HourlyDisplay from '../components/HourlyDisplay.jsx';
 import DailyDisplay from '../components/DailyDisplay.jsx';
 import Loading from '../components/Loading.jsx';
+import RefreshWeather from '../components/RefreshWeather.jsx';
 
 import styles from '../../styles/containers/WeatherDisplay.scss';
 import * as actions from '../../state/actions/actions';
@@ -133,6 +134,10 @@ class WeatherDisplay extends Component {
           formatTime={formatHours}
           currentWeather={this.props.currentLocation.weatherData.current}
           weatherIcon={weatherIcon}
+        />
+        <RefreshWeather
+          keyName={this.props.currentLocation.keyName}
+          fetchWeather={this.props.fetchWeather}
         />
         <HourlyDisplay
           hourly={this.props.currentLocation.weatherData.hourly}
