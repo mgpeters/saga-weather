@@ -35,7 +35,7 @@ class App extends Component {
     if (this.props.currentLocation.name) {
       document.title = this.props.currentLocation.name;
     }
-    this.props.updatePathname(this.props.currentPathname);
+    // this.props.updatePathname(this.props.currentPathname);
   }
 
   render() {

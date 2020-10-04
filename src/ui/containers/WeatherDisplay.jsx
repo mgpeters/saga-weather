@@ -86,13 +86,15 @@ class WeatherDisplay extends Component {
   componentDidMount() {
     console.log('comp mount', this.props.locationData);
     console.log('comp mount path', this.props.currentPathname);
-    // this.props.updatePathname(this.props.currentPathname);
-    const trimmedPath = normalizePathname(this.props.currentPathname);
+
+    this.props.updatePathname(this.props.currentPathname);
+
+    const locationKeyName = normalizePathname(this.props.currentPathname);
 
     if (this.props.currentPathname === '/') {
       this.props.fetchWeather('newyorkcity');
     } else {
-      this.props.fetchWeather(trimmedPath);
+      this.props.fetchWeather(locationKeyName);
     }
     // this.props.fetchWeather('miami');
     // this.props.fetchWeather('losangeles');
@@ -101,7 +103,9 @@ class WeatherDisplay extends Component {
   componentDidUpdate() {
     const locationKeyName = normalizePathname(this.props.currentPathname);
     // document.title = this.props.currentLocation;
-    console.log('comp mount path', this.props.currentPathname);
+    // console.log('comp update path', this.props.currentPathname);
+    console.log('comp update loc data', this.props.locationData);
+    // this.props.updatePathname(this.props.currentPathname);
     // if (
     //   this.props.currentPathname !== '/' &&
     //   this.props.locationData[locationKeyName]
