@@ -12,7 +12,7 @@
  */
 
 const locations = {
-  newyork: {
+  newyorkcity: {
     id: 5128581,
     name: 'New York City',
     state: 'NY',

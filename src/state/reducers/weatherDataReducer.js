@@ -51,8 +51,10 @@ const weatherDataReducer = (state = initialState, action) => {
       };
 
     case types.UPDATE_LOCATION:
+      console.log('update loc', action);
       return {
         ...state,
+        currentLocation: action.payload,
       };
 
     case types.TOGGLE_MODAL:

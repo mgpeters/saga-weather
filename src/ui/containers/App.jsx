@@ -11,6 +11,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Nav from './Nav.jsx';
@@ -35,6 +36,7 @@ class App extends Component {
     }
     this.props.updatePathname(this.props.currentPathname);
   }
+
   render() {
     return (
       <section className="main-container">
@@ -44,5 +46,11 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  currentLocation: PropTypes.object,
+  currentPathname: PropTypes.string,
+  updatePathname: PropTypes.func,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

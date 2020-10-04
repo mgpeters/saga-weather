@@ -28,14 +28,15 @@ const mapStateToProps = (store) => ({
   locations: store.weather.locations,
   locationData: store.weather.locationData,
   showModal: store.weather.showModal,
+  currentPathname: store.nav.pathname,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchWeather: (location) => {
     dispatch(actions.getWeather(location));
   },
-  updateLocation: () => {
-    dispatch(actions.updateLocation());
+  updateLocation: (location) => {
+    dispatch(actions.updateLocation(location));
   },
   toggleModal: () => {
     dispatch(actions.toggleModal());
@@ -74,15 +75,34 @@ const weatherIcon = (icon) => {
   return `http://openweathermap.org/img/wn/${icon}@2x.png`;
 };
 
+const normalizePathname = (pathname) =>
+  pathname.replace(/\//g, '').toLowerCase();
+
 class WeatherDisplay extends Component {
   componentDidMount() {
-    this.props.fetchWeather('newyork');
+    console.log('comp mount', this.props.locationData);
+    console.log('comp mount path', this.props.currentPathname);
+    if (this.props.currentPathname === '/' && !this.props.locationData) {
+      this.props.fetchWeather('newyorkcity');
+    }
     // this.props.fetchWeather('miami');
     // this.props.fetchWeather('losangeles');
   }
 
   componentDidUpdate() {
+    const locationKeyName = normalizePathname(this.props.currentPathname);
     // document.title = this.props.currentLocation;
+    if (
+      this.props.currentPathname !== '/' &&
+      this.props.locationData[locationKeyName]
+    ) {
+      this.props.updateLocation(this.props.locationData[locationKeyName]);
+    } else if (
+      this.props.currentPathname !== '/' &&
+      !this.props.locationData[locationKeyName]
+    ) {
+      this.props.fetchWeather(locationKeyName);
+    }
   }
 
   render() {
