@@ -16,6 +16,7 @@ const initialState = {
   locations: ['New York, NY', 'Miami, FL', 'LosAngeles, CA'],
   navBarExpanded: false,
   searchedLocation: '',
+  pathname: '/',
 };
 
 const navBarReducer = (state = initialState, action) => {
@@ -34,6 +35,11 @@ const navBarReducer = (state = initialState, action) => {
       console.log('search', action.payload);
       return {
         ...state,
+      };
+    case types.UPDATE_PATHNAME:
+      return {
+        ...state,
+        pathname: action.payload,
       };
     default:
       return state;

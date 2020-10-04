@@ -16,16 +16,24 @@ import { connect } from 'react-redux';
 import Nav from './Nav.jsx';
 import WeatherDisplay from './WeatherDisplay.jsx';
 
-const mapStateToProps = (store) => ({
+import * as actions from '../../state/actions/actions';
+
+const mapStateToProps = (store, ownProps) => ({
   currentLocation: store.weather.currentLocation,
+  currentPathname: ownProps.location.pathname,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  updatePathname: (pathname) => {
+    dispatch(actions.updatePathname(pathname));
+  },
+});
 class App extends Component {
   componentDidUpdate() {
     if (this.props.currentLocation.name) {
       document.title = this.props.currentLocation.name;
     }
+    this.props.updatePathname(this.props.currentPathname);
   }
   render() {
     return (

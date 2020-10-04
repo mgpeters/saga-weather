@@ -40,3 +40,8 @@ export const searchNewLocation = (input) => ({
   type: types.SEARCH_NEW_LOCATION,
   payload: input,
 });
+
+export const updatePathname = (pathname) => ({
+  type: types.UPDATE_PATHNAME,
+  payload: pathname,
+});
