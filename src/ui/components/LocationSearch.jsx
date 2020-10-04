@@ -22,6 +22,7 @@ import {
 
 const mapStateToProps = (store) => ({
   searchedLocation: store.nav.searchedLocation,
+  locations: store.nav.locations,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -33,13 +34,28 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+// fx checks if we already searched location to prevent api call
+const locationNotIncluded = (array, location) => {
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i].includes(location)) return false;
+  }
+  return true;
+};
+
 class LocationSearch extends Component {
   render() {
     return (
       <div className="navbar--location-search">
         <form
           onSubmit={(event) => {
-            this.props.searchNewLocation(this.props.searchedLocation);
+            if (
+              locationNotIncluded(
+                this.props.locations,
+                this.props.searchedLocation
+              )
+            ) {
+              this.props.searchNewLocation(this.props.searchedLocation);
+            }
             event.preventDefault();
           }}
         >
