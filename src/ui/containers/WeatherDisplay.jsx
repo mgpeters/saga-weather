@@ -85,7 +85,7 @@ const normalizePathname = (pathname) =>
 class WeatherDisplay extends Component {
   componentDidMount() {
     // console.log('comp mount', this.props.locationData);
-    // console.log('comp mount path', this.props.currentPathname);
+    console.log('comp mount path', this.props.currentPathname);
 
     this.props.updatePathname(this.props.currentPathname);
 
