@@ -33,5 +33,6 @@ module.exports = {
   },
   devServer: {
     publicPath: '/build',
+    historyApiFallback: true,
   },
 };
