@@ -4,7 +4,7 @@
  * @module  locations.js
  * @author  mpeters
  * @date    09/29/2020
- * @description Locations object with
+ * @description Locations object with default
  * OpenWeather API city information for
  * fetch requests
  *

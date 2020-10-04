@@ -12,7 +12,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styles from '../../styles/components/LocationNavButton.scss';
+
+import styles from '../../styles/components/Hourly.scss';
 
 const Hourly = ({ main, temp, time, weatherIcon }) => {
   return main ? (
