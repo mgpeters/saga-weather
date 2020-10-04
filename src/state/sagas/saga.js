@@ -45,7 +45,7 @@ function* fetchData(action) {
 
     yield (locationData.weatherData = data);
 
-    console.log(locationData);
+    console.log('fetch data saga', locationData);
 
     yield put({ type: types.FETCH_WEATHER_SUCCEEDED, locationData });
   } catch (error) {
