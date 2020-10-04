@@ -23,12 +23,13 @@ import Loading from '../components/Loading.jsx';
 import styles from '../../styles/containers/WeatherDisplay.scss';
 import * as actions from '../../state/actions/actions';
 
-const mapStateToProps = (store) => ({
+const mapStateToProps = (store, ownProps) => ({
   currentLocation: store.weather.currentLocation,
   locations: store.weather.locations,
   locationData: store.weather.locationData,
   showModal: store.weather.showModal,
-  currentPathname: store.nav.pathname,
+  currentPathname: ownProps.location.pathname,
+  pathname: store.nav.pathname,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -40,6 +41,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   toggleModal: () => {
     dispatch(actions.toggleModal());
+  },
+  updatePathname: (pathname) => {
+    dispatch(actions.updatePathname(pathname));
   },
 });
 
@@ -82,8 +86,13 @@ class WeatherDisplay extends Component {
   componentDidMount() {
     console.log('comp mount', this.props.locationData);
     console.log('comp mount path', this.props.currentPathname);
-    if (this.props.currentPathname === '/' && !this.props.locationData) {
+    // this.props.updatePathname(this.props.currentPathname);
+    const trimmedPath = normalizePathname(this.props.currentPathname);
+
+    if (this.props.currentPathname === '/') {
       this.props.fetchWeather('newyorkcity');
+    } else {
+      this.props.fetchWeather(trimmedPath);
     }
     // this.props.fetchWeather('miami');
     // this.props.fetchWeather('losangeles');
@@ -92,18 +101,24 @@ class WeatherDisplay extends Component {
   componentDidUpdate() {
     const locationKeyName = normalizePathname(this.props.currentPathname);
     // document.title = this.props.currentLocation;
-    if (
-      this.props.currentPathname !== '/' &&
-      this.props.locationData[locationKeyName]
-    ) {
-      this.props.updateLocation(this.props.locationData[locationKeyName]);
-    } else if (
-      this.props.currentPathname !== '/' &&
-      !this.props.locationData[locationKeyName]
-    ) {
-      this.props.fetchWeather(locationKeyName);
-    }
+    console.log('comp mount path', this.props.currentPathname);
+    // if (
+    //   this.props.currentPathname !== '/' &&
+    //   this.props.locationData[locationKeyName]
+    // ) {
+    //   this.props.updateLocation(this.props.locationData[locationKeyName]);
+    // } else if (
+    //   this.props.currentPathname !== '/' &&
+    //   !this.props.locationData[locationKeyName]
+    // ) {
+    //   this.props.fetchWeather(locationKeyName);
+    // }
   }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if (this.props.route.path === nextProps.route.path) return false;
+  //   return true;
+  // }
 
   render() {
     return this.props.currentLocation ? (

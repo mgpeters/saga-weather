@@ -13,6 +13,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Nav from './Nav.jsx';
 import WeatherDisplay from './WeatherDisplay.jsx';
@@ -21,7 +22,7 @@ import * as actions from '../../state/actions/actions';
 
 const mapStateToProps = (store, ownProps) => ({
   currentLocation: store.weather.currentLocation,
-  currentPathname: ownProps.location.pathname,
+  // currentPathname: ownProps.location.pathname,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -41,7 +42,7 @@ class App extends Component {
     return (
       <section className="main-container">
         <Nav />
-        <WeatherDisplay />
+        <Route path="/:location?" component={WeatherDisplay} />
       </section>
     );
   }
