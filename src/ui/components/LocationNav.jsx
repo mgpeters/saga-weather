@@ -23,7 +23,7 @@ const LocationNav = ({ locations }) => {
     <div className="navbar--location-list">
       <LocationSearch />
       {locations.map((location) => (
-        <LocationNavButton key={`${location}-key`} locationName={location} />
+        <LocationNavButton key={`${location}-key`} locationName={location[0]} />
       ))}
     </div>
   );
