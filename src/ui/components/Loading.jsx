@@ -12,7 +12,7 @@
 
 import React from 'react';
 
-// import styles from '../../styles/components/LocationNavButton.scss';
+import styles from '../../styles/components/Loading.scss';
 import icon from '../../util/images/loading.gif';
 
 const Loading = () => {
