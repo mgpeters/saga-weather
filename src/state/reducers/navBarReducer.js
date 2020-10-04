@@ -13,7 +13,11 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  locations: ['New York, NY', 'Miami, FL', 'LosAngeles, CA'],
+  locations: [
+    ['New York, NY', 'newyorkcity'],
+    ['Miami, FL', 'miami'],
+    ['LosAngeles, CA', 'losangeles'],
+  ],
   navBarExpanded: false,
   searchedLocation: '',
   pathname: '/',
@@ -33,8 +37,13 @@ const navBarReducer = (state = initialState, action) => {
       };
     case types.SEARCH_NEW_LOCATION:
       console.log('search', action.payload);
+      // [action.payload, action.payload.split]
       return {
         ...state,
+        locations: [
+          ...state.locations,
+          [action.payload, action.payload.split(', ')[0].toLowerCase()],
+        ],
       };
     case types.UPDATE_PATHNAME:
       return {
