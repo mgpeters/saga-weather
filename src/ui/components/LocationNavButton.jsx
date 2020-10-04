@@ -15,10 +15,10 @@ import PropTypes from 'prop-types';
 
 import styles from '../../styles/components/LocationNavButton.scss';
 
-const LocationNavButton = ({ locationName }) => {
+const LocationNavButton = ({ locationName, onClick }) => {
   return (
     <div className="navbar--location-list__buttons">
-      <button>{locationName}</button>
+      <button onClick={() => onClick()}>{locationName}</button>
     </div>
   );
 };

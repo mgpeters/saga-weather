@@ -21,8 +21,6 @@ const CurrentWeather = ({
   formatTime,
   weatherIcon,
 }) => {
-  console.log('current weather', currentWeather);
-
   const { dt, temp } = currentWeather;
   const { icon, description, main } = currentWeather.weather[0];
 
