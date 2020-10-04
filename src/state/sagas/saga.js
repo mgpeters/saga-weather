@@ -27,7 +27,7 @@ function* fetchData(action) {
   console.log('detchdata test fired', action);
   const { name, state, country, coord } = locations[action.payload]
     ? locations[action.payload]
-    : action.newLocationObj;
+    : action.payload;
 
   const keyName = name.replace(/\s/g, '').toLowerCase();
 
@@ -57,7 +57,7 @@ function* fetchNewLocationData(action) {
   const normalizedLocationString = action.payload.replace(/\s/g, '');
   const locationNameArray = normalizedLocationString.split(',');
 
-  const newLocationObj = {
+  const payload = {
     name: locationNameArray[0],
     state: locationNameArray[1],
     country: locationNameArray[2],
@@ -68,10 +68,10 @@ function* fetchNewLocationData(action) {
       `https://api.openweathermap.org/data/2.5/weather?q=${normalizedLocationString}&appid=${apiKey}`
     ).then((response) => response.json());
 
-    yield (newLocationObj.coord = data.coord);
-    yield (newLocationObj.id = data.id);
+    yield (payload.coord = data.coord);
+    yield (payload.id = data.id);
 
-    yield put({ type: types.FETCH_WEATHER_BY_LOCATION, newLocationObj });
+    yield put({ type: types.FETCH_WEATHER_BY_LOCATION, payload });
   } catch (error) {
     yield put({ type: types.FETCH_WEATHER_FAILED, message: error.message });
   }

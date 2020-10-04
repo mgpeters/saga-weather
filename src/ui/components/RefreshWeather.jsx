@@ -14,10 +14,24 @@ import PropTypes from 'prop-types';
 
 // import styles from '../../styles/components/LocationTitle.scss';
 
-const RefreshWeather = ({ fetchWeather, keyName }) => {
-  return keyName ? (
+const RefreshWeather = ({ currentLocation, fetchWeather }) => {
+  const { name, state, country } = currentLocation;
+  const { lat, lon } = currentLocation.weatherData;
+
+  const locationPayload = {
+    name,
+    state,
+    country,
+  };
+
+  locationPayload.coord = {
+    lat,
+    lon,
+  };
+
+  return currentLocation ? (
     <div className="weather-display--location-title">
-      <button onClick={() => fetchWeather(keyName)}>Refresh</button>
+      <button onClick={() => fetchWeather(locationPayload)}>Refresh</button>
     </div>
   ) : (
     <h1>Loading...</h1>
@@ -25,8 +39,8 @@ const RefreshWeather = ({ fetchWeather, keyName }) => {
 };
 
 RefreshWeather.propTypes = {
+  currentLocation: PropTypes.object,
   fetchWeather: PropTypes.func,
-  keyName: PropTypes.string,
 };
 
 export default RefreshWeather;

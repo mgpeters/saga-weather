@@ -137,6 +137,7 @@ class WeatherDisplay extends Component {
         />
         <RefreshWeather
           keyName={this.props.currentLocation.keyName}
+          currentLocation={this.props.currentLocation}
           fetchWeather={this.props.fetchWeather}
         />
         <HourlyDisplay
