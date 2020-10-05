@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 
-import WeatherDisplay from '../../../../../src/ui/containers/WeatherDisplay.jsx';
+import WeatherDisplay from '../../../../src/ui/containers/WeatherDisplay.jsx';
 
 const mockStore = configureStore([]);
 

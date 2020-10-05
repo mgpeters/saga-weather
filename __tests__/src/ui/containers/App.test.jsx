@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import App from '../../../../../src/ui/containers/App.jsx';
+import App from '../../../../src/ui/containers/App.jsx';
 
 describe('App container', () => {
   const wrapper = shallow(<App />);
