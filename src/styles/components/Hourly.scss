@@ -1,5 +1,10 @@
 .weather-display--current-weather__hourly-display--hourly {
+  text-align: center;
+  h4 {
+    font-family: 'Roboto', serif;
+    font-size: 1.5vw;
+  }
   img {
-    width: 75px;
+    width: 9vw;
   }
 }

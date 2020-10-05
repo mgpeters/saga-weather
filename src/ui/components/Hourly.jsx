@@ -13,13 +13,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from '../../styles/components/Hourly.scss';
+import '../../styles/components/Hourly.scss';
 
 const Hourly = ({ main, temp, time, weatherIcon }) => {
   return main ? (
     <div className="weather-display--current-weather__hourly-display--hourly">
-      <img src={weatherIcon} alt={`${main}`}></img>
-      <h4>{time}</h4>
+      <img
+        className="weather-display--current-weather__hourly-display--hourly__img"
+        src={weatherIcon}
+        alt={`${main}`}
+      ></img>
+      <h4 className="weather-display--current-weather__hourly-display--hourly__time">
+        {time}
+      </h4>
       <h4>{main}</h4>
       <h4>{`${temp} F`}</h4>
     </div>
