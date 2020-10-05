@@ -14,7 +14,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Hourly from './Hourly.jsx';
-import styles from '../../styles/components/HourlyDisplay.scss';
+import '../../styles/components/HourlyDisplay.scss';
 
 const HourlyDisplay = ({ hourly, weatherIcon, formatTime }) => {
   const hourlyArray = [];
@@ -40,7 +40,9 @@ const HourlyDisplay = ({ hourly, weatherIcon, formatTime }) => {
       {hourlyArray}
     </div>
   ) : (
-    <h2>Loading...</h2>
+    <h2 className="weather-display--current-weather__hourly-display__loading">
+      Loading...
+    </h2>
   );
 };
 
