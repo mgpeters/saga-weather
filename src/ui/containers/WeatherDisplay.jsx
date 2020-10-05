@@ -87,6 +87,15 @@ const weatherIcon = (icon) => {
   return `http://openweathermap.org/img/wn/${icon}@2x.png`;
 };
 
+const titleCase = (str) => {
+  const splitStr = str.toLowerCase().split(' ');
+  for (let i = 0; i < splitStr.length; i += 1) {
+    splitStr[i] =
+      splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+  }
+  return splitStr.join(' ');
+};
+
 const normalizePathname = (pathname) =>
   pathname.replace(/\//g, '').toLowerCase();
 
@@ -142,13 +151,15 @@ class WeatherDisplay extends Component {
           <Modal
             currentDate={getDate}
             formatTime={formatHours}
+            weatherIcon={weatherIcon}
+            toggleModal={this.props.toggleModal}
+            dailyDate={getDate}
+            titleCase={titleCase}
             dailyIndex={
               this.props.currentLocation.weatherData.daily[
                 this.props.modalIndex
               ]
             }
-            weatherIcon={weatherIcon}
-            toggleModal={this.props.toggleModal}
           />
         ) : null}
       </section>
