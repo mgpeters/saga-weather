@@ -13,11 +13,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from '../../styles/components/LocationNavButton.scss';
+import '../../styles/components/LocationNavButton.scss';
 
 const LocationNavButton = ({ locationName }) => {
   return (
-    <div className="navbar--location-list__buttons">
+    <div className="navbar--location-list__button">
       <button>{locationName}</button>
     </div>
   );

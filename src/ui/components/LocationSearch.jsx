@@ -14,7 +14,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-// import styles from '../../styles/components/LocationNavButton.scss';
+import '../../styles/components/LocationSearch.scss';
 
 import {
   searchNewLocation,
@@ -60,7 +60,7 @@ const LocationSearch = (props) => {
         }}
       >
         <label htmlFor="location-search">
-          Search Additional Location
+          Search Locations
           <input
             type="text"
             id="location-search"
