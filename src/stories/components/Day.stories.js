@@ -2,7 +2,6 @@ import React from 'react';
 
 import Day from '../../ui/components/Day.jsx';
 
-// import styles from '../styles/components/Day.scss';
 import { weatherIcon, getDate } from '../dummy/functions';
 import dummyData from '../dummy/successfulFetch';
 

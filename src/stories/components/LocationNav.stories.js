@@ -1,6 +1,6 @@
 import React from 'react';
-import ProviderWrapper from '../../ui/wrappers/ProviderWrapper.jsx';
 import { BrowserRouter as Router } from 'react-router-dom';
+import ProviderWrapper from '../../ui/wrappers/ProviderWrapper.jsx';
 
 import store from '../../state/store';
 

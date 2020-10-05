@@ -11,7 +11,6 @@
 
 import { combineReducers } from 'redux';
 
-// import all reducers here
 import navBarReducer from './navBarReducer';
 import weatherDataReducer from './weatherDataReducer';
 
@@ -21,5 +20,4 @@ const reducers = combineReducers({
   nav: navBarReducer,
 });
 
-// make the combined reducers available for import
 export default reducers;

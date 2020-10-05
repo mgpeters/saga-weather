@@ -20,7 +20,6 @@ const initialState = {
   ],
   navBarExpanded: false,
   searchedLocation: '',
-  pathname: '/',
 };
 
 const navBarReducer = (state = initialState, action) => {
@@ -40,7 +39,6 @@ const navBarReducer = (state = initialState, action) => {
 
       // Prevents an additional location array push if user clicks the
       // nav locations twice
-      console.log('fired');
       for (let i = 0; i < state.locations.length; i += 1) {
         if (state.locations[i].includes(action.payload)) {
           return {
@@ -55,12 +53,6 @@ const navBarReducer = (state = initialState, action) => {
         searchedLocation: '',
       };
 
-    // case types.UPDATE_PATHNAME:
-    //   console.log('update pathname');
-    //   return {
-    //     ...state,
-    //     pathname: action.payload,
-    //   };
     default:
       return state;
   }

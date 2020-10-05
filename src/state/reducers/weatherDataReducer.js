@@ -36,9 +36,7 @@ const weatherDataReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        // currentLocation: `${action.locationData.name}, ${action.locationData.state}`,
         currentLocation: action.locationData,
-        // locationData: locationState,
       };
 
     case types.FETCH_WEATHER_FAILED:

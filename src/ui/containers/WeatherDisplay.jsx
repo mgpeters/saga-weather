@@ -25,7 +25,7 @@ import RefreshWeather from '../components/RefreshWeather.jsx';
 import Modal from '../components/Modal.jsx';
 import BadPath from '../components/BadPath.jsx';
 
-import styles from '../../styles/containers/WeatherDisplay.scss';
+import '../../styles/containers/WeatherDisplay.scss';
 
 import {
   getWeather,
@@ -34,15 +34,10 @@ import {
   badPath,
 } from '../../state/actions/actions';
 
-// window.onbeforeunload = () => false;
-
 const mapStateToProps = (store, ownProps) => ({
   currentLocation: store.weather.currentLocation,
-  // locations: store.weather.locations,
-  // locationData: store.weather.locationData,
   showModal: store.weather.showModal,
   currentPathname: ownProps.location.pathname,
-  // pathname: store.nav.pathname,
   modalIndex: store.weather.modalIndex,
   badPath: store.weather.badPath,
   loading: store.weather.loading,
@@ -62,9 +57,6 @@ const mapDispatchToProps = (dispatch) => ({
   badPathToggle: () => {
     dispatch(badPath());
   },
-  // updatePathname: (pathname) => {
-  //   dispatch(actions.updatePathname(pathname));
-  // },
 });
 
 const formatHours = (timestamp) => {
@@ -113,8 +105,6 @@ const normalizePathname = (pathname) =>
 
 class WeatherDisplay extends Component {
   componentDidMount() {
-    // this.props.updatePathname(this.props.currentPathname);
-
     const locationKeyName = normalizePathname(this.props.currentPathname);
 
     // Default loads to NYC, another URL param will relocate to another

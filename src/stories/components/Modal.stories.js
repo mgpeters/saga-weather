@@ -2,7 +2,6 @@ import React from 'react';
 
 import Modal from '../../ui/components/Modal.jsx';
 
-// import styles from '../styles/components/Day.scss';
 import {
   weatherIcon,
   getDate,

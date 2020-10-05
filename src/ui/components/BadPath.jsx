@@ -13,7 +13,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from '../../styles/components/BadPath.scss';
+import '../../styles/components/BadPath.scss';
 
 const BadPath = () => {
   return (

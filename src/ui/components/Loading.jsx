@@ -6,7 +6,6 @@
  * @date    10/03/2020
  * @description Loading icon component
  *
- *
  * ************************************
  */
 
