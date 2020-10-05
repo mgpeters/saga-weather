@@ -13,7 +13,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Nav from './Nav.jsx';
 import WeatherDisplay from './WeatherDisplay.jsx';
@@ -22,7 +22,7 @@ import * as actions from '../../state/actions/actions';
 
 const mapStateToProps = (store, ownProps) => ({
   currentLocation: store.weather.currentLocation,
-  // currentPathname: ownProps.location.pathname,
+  currentPathname: ownProps.location.pathname,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -31,7 +31,11 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 class App extends Component {
+  componentDidMount() {
+    console.log('App Mounted');
+  }
   componentDidUpdate() {
+    console.log('App Updated');
     if (this.props.currentLocation.name) {
       document.title = this.props.currentLocation.name;
     }
@@ -41,8 +45,10 @@ class App extends Component {
   render() {
     return (
       <section className="main-container">
-        <Nav />
-        <Route path="/:location?" component={WeatherDisplay} />
+        <Route path="/:location?" component={Nav} />
+        <Switch>
+          <Route path="/:location?" component={WeatherDisplay} history />
+        </Switch>
       </section>
     );
   }

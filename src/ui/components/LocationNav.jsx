@@ -17,6 +17,8 @@ import { Link } from 'react-router-dom';
 import LocationSearch from '../components/LocationSearch.jsx';
 import LocationNavButton from '../components/LocationNavButton.jsx';
 
+import defaultLocations from '../../util/locations';
+
 // import styles from '../../styles/components/LocationNavButton.scss';
 
 // <LocationNavButton
@@ -24,17 +26,34 @@ import LocationNavButton from '../components/LocationNavButton.jsx';
 //   locationName={location[0]}
 // />
 
-const clicked = () => {
-  console.log('ckicjed');
-};
-
-const LocationNav = ({ locations }) => {
+const LocationNav = ({
+  fetchWeather,
+  searchNewLocation,
+  locations,
+  updatePathname,
+  currentPathname,
+  history,
+}) => {
+  // console.log('history', history);
+  // history.push('/miami');
   return (
     <div className="navbar--location-list">
       <LocationSearch />
       {locations.map((location) => (
-        <Link to={`/${location[1]}`} key={`${location}-key`}>
-          <LocationNavButton locationName={location[0]} onClick={clicked} />
+        <Link
+          to={`/${location[1]}`}
+          key={`${location}-key`}
+          onClick={() => {
+            if (defaultLocations[location[1]]) fetchWeather(location[1]);
+            else searchNewLocation(location[0]);
+          }}
+        >
+          <LocationNavButton
+            locationName={location[0]}
+            onClick={updatePathname}
+            currentPathname={currentPathname}
+            history={history}
+          />
         </Link>
       ))}
     </div>

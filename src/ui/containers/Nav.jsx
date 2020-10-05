@@ -20,18 +20,29 @@ import ExpandButton from '../components/ExpandButton.jsx';
 import styles from '../../styles/containers/Nav.scss';
 import * as actions from '../../state/actions/actions';
 
-const mapStateToProps = (store) => ({
+const mapStateToProps = (store, ownProps) => ({
   locations: store.nav.locations,
   navBarExpanded: store.nav.navBarExpanded,
+  currentPathname: ownProps.location.pathname,
+  history: ownProps.history,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   toggleNavbar: () => {
     dispatch(actions.toggleNavbar());
   },
+  updatePathname: (pathname) => {
+    dispatch(actions.updatePathname(pathname));
+  },
+  fetchWeather: (location) => {
+    dispatch(actions.getWeather(location));
+  },
+  searchNewLocation: (input) => {
+    dispatch(actions.searchNewLocation(input));
+  },
 });
 
-class SideNav extends Component {
+class Nav extends Component {
   componentDidMount() {
     // this.props.fetchWeather('newyork');
   }
@@ -44,16 +55,23 @@ class SideNav extends Component {
         className="navbar"
         style={{ width: this.props.navBarExpanded ? '300px' : '30px' }}
       >
-        <LocationNav locations={this.props.locations} />
+        <LocationNav
+          locations={this.props.locations}
+          updatePathname={this.props.updatePathname}
+          currentPathname={this.props.currentPathname}
+          history={this.props.history}
+          fetchWeather={this.props.fetchWeather}
+          searchNewLocation={this.props.searchNewLocation}
+        />
         <ExpandButton toggle={this.props.toggleNavbar} />
       </nav>
     );
   }
 }
 
-SideNav.propTypes = {
+Nav.propTypes = {
   currentLocation: PropTypes.string,
-  locations: PropTypes.arrayOf(PropTypes.string),
+  locations: PropTypes.arrayOf(PropTypes.array),
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideNav);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

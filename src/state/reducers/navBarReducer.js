@@ -38,19 +38,21 @@ const navBarReducer = (state = initialState, action) => {
     case types.SEARCH_NEW_LOCATION:
       const normalizeKeyName = action.payload.split(', ')[0].toLowerCase();
 
-      // for (let i = 0; i < state.locations.length; i += 1) {
-      //   if (state.locations[i].includes(action.payload)) {
-      //     return {
-      //       ...state,
-      //     };
-      //   }
-      // }
+      for (let i = 0; i < state.locations.length; i += 1) {
+        if (state.locations[i].includes(action.payload)) {
+          return {
+            ...state,
+          };
+        }
+      }
 
       return {
         ...state,
         locations: [...state.locations, [action.payload, normalizeKeyName]],
+        searchedLocation: '',
       };
     case types.UPDATE_PATHNAME:
+      console.log('update pathname');
       return {
         ...state,
         pathname: action.payload,
