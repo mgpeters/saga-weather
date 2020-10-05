@@ -85,9 +85,6 @@ const normalizePathname = (pathname) =>
 
 class WeatherDisplay extends Component {
   componentDidMount() {
-    // console.log('comp mount', this.props.locationData);
-    console.log('comp mount path', this.props.currentPathname);
-
     this.props.updatePathname(this.props.currentPathname);
 
     const locationKeyName = normalizePathname(this.props.currentPathname);
@@ -97,33 +94,15 @@ class WeatherDisplay extends Component {
     } else {
       this.props.fetchWeather(locationKeyName);
     }
-    // this.props.fetchWeather('miami');
-    // this.props.fetchWeather('losangeles');
   }
 
   componentDidUpdate() {
+    if (this.props.currentLocation.name) {
+      console.log(this.props.currentLocation);
+      document.title = this.props.currentLocation.name;
+    }
     const locationKeyName = normalizePathname(this.props.currentPathname);
-    // document.title = this.props.currentLocation;
-    // console.log('comp update path', this.props.currentPathname);
-    // console.log('comp update loc data', this.props.locationData);
-    // this.props.updatePathname(this.props.currentPathname);
-    // if (
-    //   this.props.currentPathname !== '/' &&
-    //   this.props.locationData[locationKeyName]
-    // ) {
-    //   this.props.updateLocation(this.props.locationData[locationKeyName]);
-    // } else if (
-    //   this.props.currentPathname !== '/' &&
-    //   !this.props.locationData[locationKeyName]
-    // ) {
-    //   this.props.fetchWeather(locationKeyName);
-    // }
   }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   if (this.props.route.path === nextProps.route.path) return false;
-  //   return true;
-  // }
 
   render() {
     return this.props.currentLocation ? (

@@ -23,7 +23,7 @@ import * as actions from '../../state/actions/actions';
 const mapStateToProps = (store, ownProps) => ({
   locations: store.nav.locations,
   navBarExpanded: store.nav.navBarExpanded,
-  currentPathname: ownProps.location.pathname,
+  // currentPathname: ownProps.location.pathname,
   history: ownProps.history,
 });
 

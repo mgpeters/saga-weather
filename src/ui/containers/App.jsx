@@ -22,7 +22,6 @@ import * as actions from '../../state/actions/actions';
 
 const mapStateToProps = (store, ownProps) => ({
   currentLocation: store.weather.currentLocation,
-  currentPathname: ownProps.location.pathname,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -34,20 +33,21 @@ class App extends Component {
   componentDidMount() {
     console.log('App Mounted');
   }
+
   componentDidUpdate() {
     console.log('App Updated');
-    if (this.props.currentLocation.name) {
-      document.title = this.props.currentLocation.name;
-    }
+    // if (this.props.currentLocation.name) {
+    //   document.title = this.props.currentLocation.name;
+    // }
     // this.props.updatePathname(this.props.currentPathname);
   }
 
   render() {
     return (
       <section className="main-container">
-        <Route path="/:location?" component={Nav} />
+        <Nav />
         <Switch>
-          <Route path="/:location?" component={WeatherDisplay} history />
+          <Route component={WeatherDisplay} />
         </Switch>
       </section>
     );

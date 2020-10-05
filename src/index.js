@@ -25,7 +25,7 @@ import styles from './styles/styles.scss';
 render(
   <ProviderWrapper store={store}>
     <Router>
-      <Route path="/" component={App} />
+      <App />
     </Router>
   </ProviderWrapper>,
   document.getElementById('root')
