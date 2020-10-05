@@ -10,7 +10,7 @@
     "react/prop-types": 0,
     "no-console": 1
   },
-  "plugins": ["react", "jsx-a11y"],
+  "plugins": ["react", "jsx-a11y", "jest"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",

@@ -58,23 +58,23 @@ module.exports = {
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  // moduleDirectories: [
-  //   "node_modules"
-  // ],
+  // moduleDirectories: ['node_modules'],
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
-  //   "js",
-  //   "json",
-  //   "jsx",
-  //   "ts",
-  //   "tsx",
-  //   "node"
+  //   'js',
+  //   'json',
+  //   'jsx',
+  //   // "ts",
+  //   // "tsx",
+  //   // "node"
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to
   // stub out resources with a single module
   moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less|scss)$': '<rootDir>/__mocks__/styleMock.js',
   },
 
@@ -126,7 +126,7 @@ module.exports = {
 
   // A list of paths to modules that run some code to configure or set up the
   // testing framework before each test
-  // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ['<rootDir>__tests__/setupTests.js'],
 
   // The number of seconds after which a test is considered as slow and
   // reported as such in the results.
@@ -152,7 +152,7 @@ module.exports = {
 
   // An array of regexp pattern strings that are matched against all test
   // paths, matched tests are skipped
-  testPathIgnorePatterns: ['/node_modules/', '/legacy/'],
+  testPathIgnorePatterns: ['/node_modules/'],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
