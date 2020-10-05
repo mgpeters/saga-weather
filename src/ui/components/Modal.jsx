@@ -12,7 +12,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from '../../styles/components/Modal.scss';
+import '../../styles/components/Modal.scss';
 
 const Modal = ({
   dailyIndex,
