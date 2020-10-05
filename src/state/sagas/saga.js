@@ -12,7 +12,7 @@
 // gets rid of regeneratorRuntime is not defined error in console
 import 'regenerator-runtime/runtime';
 
-import { call, put, takeEvery, takeLatest, all } from 'redux-saga/effects';
+import { put, takeEvery, all } from 'redux-saga/effects';
 
 import * as types from '../constants/actionTypes';
 import locations from '../../util/locations';
@@ -73,7 +73,10 @@ function* fetchNewLocationData(action) {
 
     yield put({ type: types.FETCH_WEATHER_BY_LOCATION, payload });
   } catch (error) {
-    yield put({ type: types.FETCH_WEATHER_FAILED, message: error.message });
+    yield put({
+      type: types.FETCH_WEATHER_FAILED,
+      message: error.message,
+    });
   }
 }
 

@@ -51,12 +51,12 @@ const navBarReducer = (state = initialState, action) => {
         locations: [...state.locations, [action.payload, normalizeKeyName]],
         searchedLocation: '',
       };
-    case types.UPDATE_PATHNAME:
-      console.log('update pathname');
-      return {
-        ...state,
-        pathname: action.payload,
-      };
+    // case types.UPDATE_PATHNAME:
+    //   console.log('update pathname');
+    //   return {
+    //     ...state,
+    //     pathname: action.payload,
+    //   };
     default:
       return state;
   }

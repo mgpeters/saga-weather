@@ -14,6 +14,7 @@ import * as types from '../constants/actionTypes';
 
 const initialState = {
   showModal: false,
+  error: false,
 };
 
 const weatherDataReducer = (state = initialState, action) => {

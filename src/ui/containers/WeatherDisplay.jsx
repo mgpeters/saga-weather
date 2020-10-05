@@ -20,32 +20,38 @@ import HourlyDisplay from '../components/HourlyDisplay.jsx';
 import DailyDisplay from '../components/DailyDisplay.jsx';
 import Loading from '../components/Loading.jsx';
 import RefreshWeather from '../components/RefreshWeather.jsx';
+import Modal from '../components/Modal.jsx';
 
 import styles from '../../styles/containers/WeatherDisplay.scss';
-import * as actions from '../../state/actions/actions';
+
+import {
+  getWeather,
+  updateLocation,
+  toggleModal,
+} from '../../state/actions/actions';
 
 const mapStateToProps = (store, ownProps) => ({
   currentLocation: store.weather.currentLocation,
-  locations: store.weather.locations,
-  locationData: store.weather.locationData,
+  // locations: store.weather.locations,
+  // locationData: store.weather.locationData,
   showModal: store.weather.showModal,
   currentPathname: ownProps.location.pathname,
-  pathname: store.nav.pathname,
+  // pathname: store.nav.pathname,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchWeather: (location) => {
-    dispatch(actions.getWeather(location));
+    dispatch(getWeather(location));
   },
   updateLocation: (location) => {
-    dispatch(actions.updateLocation(location));
+    dispatch(updateLocation(location));
   },
   toggleModal: () => {
-    dispatch(actions.toggleModal());
+    dispatch(toggleModal());
   },
-  updatePathname: (pathname) => {
-    dispatch(actions.updatePathname(pathname));
-  },
+  // updatePathname: (pathname) => {
+  //   dispatch(actions.updatePathname(pathname));
+  // },
 });
 
 const formatHours = (timestamp) => {
@@ -85,7 +91,7 @@ const normalizePathname = (pathname) =>
 
 class WeatherDisplay extends Component {
   componentDidMount() {
-    this.props.updatePathname(this.props.currentPathname);
+    // this.props.updatePathname(this.props.currentPathname);
 
     const locationKeyName = normalizePathname(this.props.currentPathname);
 
@@ -131,6 +137,7 @@ class WeatherDisplay extends Component {
           weatherIcon={weatherIcon}
           openModal={this.props.toggleModal}
         />
+        {this.props.showModal ? <Modal /> : null}
       </section>
     ) : (
       <Loading />

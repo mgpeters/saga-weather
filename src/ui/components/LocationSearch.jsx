@@ -15,6 +15,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // import styles from '../../styles/components/LocationNavButton.scss';
+
 import {
   searchNewLocation,
   handleSearchChange,
