@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import ProviderWrapper from '../ui/wrappers/ProviderWrapper.jsx';
+import ProviderWrapper from '../../ui/wrappers/ProviderWrapper.jsx';
 
-import store from '../state/store';
+import store from '../../state/store';
 
-import LocationSearch from '../ui/components/LocationSearch.jsx';
+import LocationSearch from '../../ui/components/LocationSearch.jsx';
 
-import locations from './dummy/locationsArray';
+import locations from '../dummy/locationsArray';
 
 // Decorator for redux and react-router
 const withProvider = (story) => (

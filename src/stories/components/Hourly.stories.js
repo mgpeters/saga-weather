@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Hourly from '../ui/components/Hourly.jsx';
+import Hourly from '../../ui/components/Hourly.jsx';
 
-import { weatherIcon, formatHours } from './dummy/functions';
-import dummyData from './dummy/successfulFetch';
+import { weatherIcon, formatHours } from '../dummy/functions';
+import dummyData from '../dummy/successfulFetch';
 
 const { dt, temp } = dummyData.weatherData.hourly[0];
 const { icon, main } = dummyData.weatherData.hourly[0].weather[0];

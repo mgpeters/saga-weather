@@ -1,15 +1,17 @@
 import React from 'react';
-import ProviderWrapper from '../ui/wrappers/ProviderWrapper.jsx';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import ProviderWrapper from '../../ui/wrappers/ProviderWrapper.jsx';
 
-import store from '../state/store';
+import store from '../../state/store';
 
-import App from '../ui/containers/App.jsx';
+import App from '../../ui/containers/App.jsx';
 
 // Decorator for redux and react-router
 const withProvider = (story) => (
   <ProviderWrapper store={store}>
-    <Router>{story()}</Router>
+    <Router>
+      <Route path="/">{story()}</Route>
+    </Router>
   </ProviderWrapper>
 );
 
@@ -21,12 +23,12 @@ export default {
 
 const Template = (args) => <App {...args} />;
 
-export const LoggedIn = Template.bind({});
+export const ValidPath = Template.bind({});
 // LoggedIn.args = {
 //   ...HeaderStories.LoggedIn.args,
 // };
 
-export const LoggedOut = Template.bind({});
+export const InvalidPath = Template.bind({});
 // LoggedOut.args = {
 //   ...HeaderStories.LoggedOut.args,
 // };

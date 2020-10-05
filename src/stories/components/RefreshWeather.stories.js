@@ -1,10 +1,10 @@
 import React from 'react';
 
-import RefreshWeather from '../ui/components/RefreshWeather.jsx';
+import RefreshWeather from '../../ui/components/RefreshWeather.jsx';
 
 // import styles from '../styles/components/Day.scss';
 // import { weatherIcon, getDate } from './dummy/functions';
-import dummyData from './dummy/successfulFetch';
+import dummyData from '../dummy/successfulFetch';
 
 // const { dt } = dummyData.weatherData.daily[0];
 // const { day } = dummyData.weatherData.daily[0].temp;

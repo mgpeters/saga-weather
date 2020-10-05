@@ -1,9 +1,9 @@
 import React from 'react';
 
-import CurrentWeather from '../ui/components/CurrentWeather.jsx';
+import CurrentWeather from '../../ui/components/CurrentWeather.jsx';
 
-import { weatherIcon, formatHours, getDate } from './dummy/functions';
-import dummyData from './dummy/successfulFetch';
+import { weatherIcon, formatHours, getDate } from '../dummy/functions';
+import dummyData from '../dummy/successfulFetch';
 
 export default {
   title: 'Components/CurrentWeather',

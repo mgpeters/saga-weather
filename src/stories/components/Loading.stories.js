@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Loading from '../ui/components/Loading.jsx';
+import Loading from '../../ui/components/Loading.jsx';
 
 // import styles from '../styles/components/BadPath.scss';
 

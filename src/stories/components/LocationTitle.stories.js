@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LocationTitle from '../ui/components/LocationTitle.jsx';
+import LocationTitle from '../../ui/components/LocationTitle.jsx';
 
 // import styles from '../styles/components/BadPath.scss';
 
@@ -20,8 +20,6 @@ Populated.args = {
     country: 'US',
   },
 };
-
-console.log(Populated.props);
 
 export const NotPopulated = Template.bind({});
 NotPopulated.args = {};

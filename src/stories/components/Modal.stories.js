@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Modal from '../ui/components/Modal.jsx';
+import Modal from '../../ui/components/Modal.jsx';
 
 // import styles from '../styles/components/Day.scss';
 import {
@@ -8,8 +8,8 @@ import {
   getDate,
   formatHours,
   titleCase,
-} from './dummy/functions';
-import dummyData from './dummy/successfulFetch';
+} from '../dummy/functions';
+import dummyData from '../dummy/successfulFetch';
 
 export default {
   title: 'Components/Modal',

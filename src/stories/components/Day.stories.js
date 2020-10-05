@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Day from '../ui/components/Day.jsx';
+import Day from '../../ui/components/Day.jsx';
 
 // import styles from '../styles/components/Day.scss';
-import { weatherIcon, getDate } from './dummy/functions';
-import dummyData from './dummy/successfulFetch';
+import { weatherIcon, getDate } from '../dummy/functions';
+import dummyData from '../dummy/successfulFetch';
 
 const { dt } = dummyData.weatherData.daily[0];
 const { day } = dummyData.weatherData.daily[0].temp;

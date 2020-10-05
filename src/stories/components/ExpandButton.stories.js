@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ExpandButton from '../ui/components/ExpandButton.jsx';
+import ExpandButton from '../../ui/components/ExpandButton.jsx';
 
 export default {
   title: 'Components/ExpandButton',

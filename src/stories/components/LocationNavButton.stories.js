@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LocationNavButton from '../ui/components/LocationNavButton.jsx';
+import LocationNavButton from '../../ui/components/LocationNavButton.jsx';
 
 // import styles from '../styles/components/BadPath.scss';
 
