@@ -12,20 +12,13 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
 
 import styles from '../../styles/components/LocationNavButton.scss';
 
-const LocationNavButton = ({
-  locationName,
-  onClick,
-  currentPathname,
-  // history,
-}) => {
-  const history = useHistory();
+const LocationNavButton = ({ locationName }) => {
   return (
     <div className="navbar--location-list__buttons">
-      <button onClick={() => history.push('/miami')}>{locationName}</button>
+      <button>{locationName}</button>
     </div>
   );
 };

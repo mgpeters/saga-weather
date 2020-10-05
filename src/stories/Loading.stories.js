@@ -1,14 +1,14 @@
 import React from 'react';
 
-import BadPath from '../ui/components/BadPath.jsx';
+import Loading from '../ui/components/Loading.jsx';
 
 // import styles from '../styles/components/BadPath.scss';
 
 export default {
-  title: 'Components/BadPath',
-  component: BadPath,
+  title: 'Components/Loading',
+  component: Loading,
 };
 
-const Template = (args) => <BadPath {...args} />;
+const Template = (args) => <Loading {...args} />;
 
 export const Stateless = Template.bind({});
