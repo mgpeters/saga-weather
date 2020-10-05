@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 
 import Day from './Day.jsx';
 
-import styles from '../../styles/components/DailyDisplay.scss';
+import '../../styles/components/DailyDisplay.scss';
 
 const DailyDisplay = ({ daily, weatherIcon, dailyDate, toggleModal }) => {
   const dailyArray = [];
@@ -43,6 +43,7 @@ const DailyDisplay = ({ daily, weatherIcon, dailyDate, toggleModal }) => {
 
   return daily ? (
     <div className="weather-display--current-weather__daily-display">
+      <h3>Weekly Forecast</h3>
       {dailyArray}
     </div>
   ) : (

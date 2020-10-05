@@ -1,21 +1,18 @@
 .weather-display--current-weather__daily-display--day {
   display: flex;
   flex-direction: row;
-  // align-items: center;
+  align-items: center;
   justify-content: space-evenly;
-  // width: 500px;
-  // h4 {
-  //   font-family: 'Zilla Slab', serif;
-  //   font-size: 3.5vw;
-  //   margin: auto;
-  // }
-  .weather-display--current-weather__daily-display--day__date {
-    // float: left;
+
+  h4 {
+    width: 300px;
+    vertical-align: middle;
+    font-family: 'Roboto', serif;
+    font-size: 2.3vw;
   }
+
   .weather-display--current-weather__daily-display--day__img {
-    width: 50px;
-    height: 50px;
-  }
-  .weather-display--current-weather__daily-display--day__temp {
+    width: 8vw;
+    height: 8vw;
   }
 }

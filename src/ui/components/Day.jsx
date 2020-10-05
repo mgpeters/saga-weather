@@ -13,7 +13,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from '../../styles/components/Day.scss';
+import '../../styles/components/Day.scss';
 
 const Day = ({ main, temp, date, weatherIcon, toggleModal, index }) => {
   return main ? (
@@ -24,7 +24,9 @@ const Day = ({ main, temp, date, weatherIcon, toggleModal, index }) => {
       tabIndex={0}
       // onKeyUp={() => openModal()}
     >
-      <h4 className="weather-display--current-weather__daily-display--day__date">{`${date.weekday} - ${date.dateNoYear}`}</h4>
+      <h4 className="weather-display--current-weather__daily-display--day__date">
+        {`${date.weekday}-${date.dateNoYear}`}
+      </h4>
       <img
         className="weather-display--current-weather__daily-display--day__img"
         src={weatherIcon}
@@ -33,7 +35,9 @@ const Day = ({ main, temp, date, weatherIcon, toggleModal, index }) => {
       <h4 className="weather-display--current-weather__daily-display--day__temp">{`${temp} F`}</h4>
     </div>
   ) : (
-    <h2>Loading...</h2>
+    <h2 className="weather-display--current-weather__daily-display--day__loading">
+      Loading...
+    </h2>
   );
 };
 

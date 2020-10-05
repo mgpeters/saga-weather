@@ -18,7 +18,7 @@ import '../../styles/components/LocationTitle.scss';
 const LocationTitle = ({ currentLocation }) => {
   return currentLocation ? (
     <div className="weather-display--location-title">
-      <h1 className="weather-display--location-title__header">{`${currentLocation.name}, ${currentLocation.state}, ${currentLocation.country}`}</h1>
+      <h1 className="weather-display--location-title__header">{`${currentLocation.name}, ${currentLocation.state}`}</h1>
     </div>
   ) : (
     <h1 className="weather-display--location-title__loading">Loading...</h1>

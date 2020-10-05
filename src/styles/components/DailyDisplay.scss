@@ -1,6 +1,10 @@
 .weather-display--current-weather__daily-display {
   display: flex;
   flex-direction: column;
-  // align-items: center;
   justify-content: center;
+  text-align: center;
+  h3 {
+    font-family: 'Zilla Slab', serif;
+    font-size: 3.5vw;
+  }
 }
