@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Zilla+Slab:ital@1&display=swap');
+
 .weather-display--current-weather {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  h2 {
+    font-family: 'Zilla Slab', serif;
+    font-size: 3.5vw;
+  }
   img {
     width: 125px;
   }
