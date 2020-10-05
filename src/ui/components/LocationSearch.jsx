@@ -10,7 +10,7 @@
  * ************************************
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -43,45 +43,38 @@ const locationNotIncluded = (array, location) => {
   return true;
 };
 
-class LocationSearch extends Component {
-  render() {
-    return (
-      <div className="navbar--location-search">
-        <form
-          onSubmit={(event) => {
-            // Checks to see if the user input all requires text (City, State, Country)
-            if (this.props.searchedLocation.split(', ').length !== 3) {
-              console.log('Bad Input');
-            } else if (
-              locationNotIncluded(
-                this.props.locations,
-                this.props.searchedLocation
-              )
-            ) {
-              this.props.searchNewLocation(this.props.searchedLocation);
-            }
-            event.preventDefault();
-          }}
-        >
-          <label htmlFor="location-search">
-            Search Additional Location
-            <input
-              type="text"
-              id="location-search"
-              name="location-search"
-              placeholder="City, State, Country"
-              value={this.props.searchedLocation}
-              onChange={(event) =>
-                this.props.handleSearchChange(event.target.value)
-              }
-            />
-          </label>
-          <input type="submit" value="Search" />
-        </form>
-      </div>
-    );
-  }
-}
+const LocationSearch = (props) => {
+  return (
+    <div className="navbar--location-search">
+      <form
+        onSubmit={(event) => {
+          // Checks to see if the user input all requires text (City, State, Country)
+          if (props.searchedLocation.split(', ').length !== 3) {
+            console.log('Bad Input');
+          } else if (
+            locationNotIncluded(props.locations, props.searchedLocation)
+          ) {
+            props.searchNewLocation(props.searchedLocation);
+          }
+          event.preventDefault();
+        }}
+      >
+        <label htmlFor="location-search">
+          Search Additional Location
+          <input
+            type="text"
+            id="location-search"
+            name="location-search"
+            placeholder="City, State, Country"
+            value={props.searchedLocation}
+            onChange={(event) => props.handleSearchChange(event.target.value)}
+          />
+        </label>
+        <input type="submit" value="Search" />
+      </form>
+    </div>
+  );
+};
 
 LocationSearch.propTypes = {
   searchedLocation: PropTypes.string,
