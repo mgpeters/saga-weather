@@ -7,7 +7,7 @@ While running the app locally is easy, there is some minor setup involved (mainl
 
 You can also enjoy the benefit of documented components with Storybook, as well as automated formatting with Prettier and styling with ESLint.
 
-There is test coverage, but please feel free to fork and clone this project and add your own.
+There is test coverage, but please feel free to a pull request this project and add your own.
 
 Also, feel free to report any issues you may encounter, lord knows I'm not perfect.
 
@@ -31,7 +31,9 @@ const apiKey = api ? api.openWeatherMap : undefined; // add key in place of 'und
 
 ### How To Use
 
-After running the development server, you can click the side navigation bar to expand and choose from a list of preselected cities (New York City, Miami, LosAngeles). If you want to search for your own, you can input the city name, state code, and country code into the search bar to fetch a new location. Please note, you must input all three (city, state, and country) to fetch weather data from a non-default city.
+After running the development server, you can click the side navigation bar to expand and choose from a list of preselected cities (New York City, Miami, LosAngeles). If you want to search for your own, you can input the city name, state code, and country code into the search bar to fetch a new location.
+
+Please note, you must input all three (city, state, and country) to fetch weather data from a non-default city.
 
 ## License
 
