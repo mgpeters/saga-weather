@@ -1,5 +1,6 @@
 import React from 'react';
 import ProviderWrapper from '../ui/wrappers/ProviderWrapper.jsx';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import store from '../state/store';
 
@@ -7,7 +8,9 @@ import App from '../ui/containers/App';
 
 // Decorator for redux and react-router
 const withProvider = (story) => (
-  <ProviderWrapper store={store}>{story()}</ProviderWrapper>
+  <ProviderWrapper store={store}>
+    <Router>{story()}</Router>
+  </ProviderWrapper>
 );
 
 export default {

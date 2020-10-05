@@ -23,6 +23,7 @@ import DailyDisplay from '../components/DailyDisplay.jsx';
 import Loading from '../components/Loading.jsx';
 import RefreshWeather from '../components/RefreshWeather.jsx';
 import Modal from '../components/Modal.jsx';
+import BadPath from '../components/BadPath.jsx';
 
 import styles from '../../styles/containers/WeatherDisplay.scss';
 
@@ -136,9 +137,7 @@ class WeatherDisplay extends Component {
   render() {
     let optionalRenders;
     if (this.props.badPath) {
-      optionalRenders = <h1>BadPath - Please Enter Another</h1>;
-    } else if (this.props.error) {
-      optionalRenders = <h1>There Was An Error Fetching That Location</h1>;
+      optionalRenders = <BadPath />;
     } else {
       optionalRenders = <Loading />;
     }
