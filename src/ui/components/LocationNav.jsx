@@ -14,28 +14,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import LocationSearch from '../components/LocationSearch.jsx';
-import LocationNavButton from '../components/LocationNavButton.jsx';
+import LocationSearch from './LocationSearch.jsx';
+import LocationNavButton from './LocationNavButton.jsx';
 
 import defaultLocations from '../../util/locations';
 
-// import styles from '../../styles/components/LocationNavButton.scss';
+import '../../styles/components/LocationNav.scss';
 
-// <LocationNavButton
-//   key={`${location}-key`}
-//   locationName={location[0]}
-// />
-
-const LocationNav = ({
-  fetchWeather,
-  searchNewLocation,
-  locations,
-  updatePathname,
-  currentPathname,
-  history,
-}) => {
-  // console.log('history', history);
-  // history.push('/miami');
+const LocationNav = ({ fetchWeather, searchNewLocation, locations }) => {
   return (
     <div className="navbar--location-list">
       <LocationSearch />
@@ -48,12 +34,7 @@ const LocationNav = ({
             else searchNewLocation(location[0]);
           }}
         >
-          <LocationNavButton
-            locationName={location[0]}
-            onClick={updatePathname}
-            currentPathname={currentPathname}
-            history={history}
-          />
+          <LocationNavButton locationName={location[0]} />
         </Link>
       ))}
     </div>
@@ -62,6 +43,8 @@ const LocationNav = ({
 
 LocationNav.propTypes = {
   locations: PropTypes.array,
+  fetchWeather: PropTypes.func,
+  searchNewLocation: PropTypes.func,
 };
 
 export default LocationNav;
