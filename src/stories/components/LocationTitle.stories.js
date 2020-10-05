@@ -2,8 +2,6 @@ import React from 'react';
 
 import LocationTitle from '../../ui/components/LocationTitle.jsx';
 
-// import styles from '../styles/components/BadPath.scss';
-
 export default {
   title: 'Components/LocationTitle',
   component: LocationTitle,
