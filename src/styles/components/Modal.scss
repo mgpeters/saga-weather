@@ -71,16 +71,16 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 1500px) {
   .weather-display--modal {
     h3 {
       font-family: 'Zilla Slab', serif;
-      font-size: 2vw;
+      font-size: 3vw;
     }
     h4 {
       vertical-align: middle;
       font-family: 'Roboto', serif;
-      font-size: 1vw;
+      font-size: 1.5vw;
     }
     img {
       height: 7vw;
