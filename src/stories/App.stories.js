@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import store from '../state/store';
 
-import App from '../ui/containers/App';
+import App from '../ui/containers/App.jsx';
 
 // Decorator for redux and react-router
 const withProvider = (story) => (

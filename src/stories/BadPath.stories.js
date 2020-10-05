@@ -2,6 +2,8 @@ import React from 'react';
 
 import BadPath from '../ui/components/BadPath.jsx';
 
+import styles from '../styles/components/BadPath.scss';
+
 export default {
   title: 'Components/BadPath',
   component: BadPath,
@@ -9,12 +11,4 @@ export default {
 
 const Template = (args) => <BadPath {...args} />;
 
-// export const LoggedIn = Template.bind({});
-// LoggedIn.args = {
-//   ...HeaderStories.LoggedIn.args,
-// };
-
-// export const LoggedOut = Template.bind({});
-// LoggedOut.args = {
-//   ...HeaderStories.LoggedOut.args,
-// };
+export const Stateless = Template.bind({});
