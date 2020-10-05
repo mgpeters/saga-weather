@@ -50,7 +50,11 @@ const LocationSearch = (props) => {
         onSubmit={(event) => {
           // Checks to see if the user input all requires text (City, State, Country)
           if (props.searchedLocation.split(', ').length !== 3) {
-            console.log('Bad Input');
+            const showError = document.getElementById('location-search');
+            showError.value = 'Improper Submission';
+            setTimeout(() => {
+              showError.value = 'City, State, Country';
+            }, 1500);
           } else if (
             locationNotIncluded(props.locations, props.searchedLocation)
           ) {
