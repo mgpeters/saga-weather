@@ -89,6 +89,8 @@ class WeatherDisplay extends Component {
 
     const locationKeyName = normalizePathname(this.props.currentPathname);
 
+    // Default loads to NYC, another URL param will relocate to another
+    // default location
     if (this.props.currentPathname === '/') {
       this.props.fetchWeather('newyorkcity');
     } else {
@@ -97,11 +99,9 @@ class WeatherDisplay extends Component {
   }
 
   componentDidUpdate() {
-    if (this.props.currentLocation.name) {
-      console.log(this.props.currentLocation);
+    if (this.props.currentLocation) {
       document.title = this.props.currentLocation.name;
     }
-    const locationKeyName = normalizePathname(this.props.currentPathname);
   }
 
   render() {

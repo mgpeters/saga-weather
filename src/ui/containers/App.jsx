@@ -20,39 +20,46 @@ import WeatherDisplay from './WeatherDisplay.jsx';
 
 import * as actions from '../../state/actions/actions';
 
-const mapStateToProps = (store, ownProps) => ({
-  currentLocation: store.weather.currentLocation,
-});
+// const mapStateToProps = (store, ownProps) => ({
+//   currentLocation: store.weather.currentLocation,
+// });
 
-const mapDispatchToProps = (dispatch) => ({
-  updatePathname: (pathname) => {
-    dispatch(actions.updatePathname(pathname));
-  },
-});
-class App extends Component {
-  componentDidMount() {
-    console.log('App Mounted');
-  }
+// const mapDispatchToProps = (dispatch) => ({
+//   updatePathname: (pathname) => {
+//     dispatch(actions.updatePathname(pathname));
+//   },
+// });
+// class App extends Component {
+//   componentDidMount() {
+//     console.log('App Mounted');
+//   }
 
-  componentDidUpdate() {
-    console.log('App Updated');
-    // if (this.props.currentLocation.name) {
-    //   document.title = this.props.currentLocation.name;
-    // }
-    // this.props.updatePathname(this.props.currentPathname);
-  }
+//   componentDidUpdate() {
+//     console.log('App Updated');
+//   }
 
-  render() {
-    return (
-      <section className="main-container">
-        <Nav />
-        <Switch>
-          <Route component={WeatherDisplay} />
-        </Switch>
-      </section>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <section className="main-container">
+//         <Nav />
+//         <Switch>
+//           <Route component={WeatherDisplay} />
+//         </Switch>
+//       </section>
+//     );
+//   }
+// }
+
+const App = () => {
+  return (
+    <section className="main-container">
+      <Nav />
+      <Switch>
+        <Route component={WeatherDisplay} />
+      </Switch>
+    </section>
+  );
+};
 
 App.propTypes = {
   currentLocation: PropTypes.object,
@@ -60,4 +67,5 @@ App.propTypes = {
   updatePathname: PropTypes.func,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
