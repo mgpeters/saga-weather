@@ -13,7 +13,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from '../../styles/components/CurrentWeather.scss';
+import '../../styles/components/CurrentWeather.scss';
 
 const CurrentWeather = ({
   currentWeather,
@@ -26,12 +26,16 @@ const CurrentWeather = ({
 
   return currentWeather ? (
     <div className="weather-display--current-weather">
-      <h2>
+      <h2 className="weather-display--current-weather__title">
         <span>{`${currentDate().fullDate} - ${formatTime(dt)}`}</span>
       </h2>
-      <h3>{`${temp} F`}</h3>
-      <img src={weatherIcon(icon)} alt={`${main} - ${description}`}></img>
-      <h3>{main}</h3>
+      <h3 className="weather-display--current-weather__temp">{`${temp} F`}</h3>
+      <img
+        className="weather-display--current-weather__img"
+        src={weatherIcon(icon)}
+        alt={`${main} - ${description}`}
+      ></img>
+      <h3 className="weather-display--current-weather__desc">{main}</h3>
     </div>
   ) : (
     <h2>Loading...</h2>

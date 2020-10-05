@@ -12,7 +12,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import styles from '../../styles/components/LocationTitle.scss';
+import '../../styles/components/RefreshWeather.scss';
 
 const RefreshWeather = ({ currentLocation, fetchWeather }) => {
   const { name, state, country } = currentLocation;
@@ -30,11 +30,16 @@ const RefreshWeather = ({ currentLocation, fetchWeather }) => {
   };
 
   return currentLocation ? (
-    <div className="weather-display--location-title">
-      <button onClick={() => fetchWeather(locationPayload)}>Refresh</button>
+    <div className="weather-display--location-refresh">
+      <button
+        className="weather-display--location-refresh__btn"
+        onClick={() => fetchWeather(locationPayload)}
+      >
+        Refresh
+      </button>
     </div>
   ) : (
-    <h1>Loading...</h1>
+    <h1 className="weather-display--location-refresh__loading">Loading...</h1>
   );
 };
 
