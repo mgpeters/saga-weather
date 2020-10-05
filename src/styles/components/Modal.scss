@@ -1,8 +1,20 @@
 .weather-display--modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: white;
+  // -webkit-animation-name: slideIn;
+  // -webkit-animation-duration: 5s;
+  // transition: visibility 0s, opacity 0.5s linear;
+  border-radius: 10px 10px 10px 10px !important;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
   img {
     width: 125px;
   }

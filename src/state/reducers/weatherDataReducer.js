@@ -14,6 +14,7 @@ import * as types from '../constants/actionTypes';
 
 const initialState = {
   showModal: false,
+  badPath: false,
   error: false,
 };
 
@@ -32,14 +33,12 @@ const weatherDataReducer = (state = initialState, action) => {
     case types.FETCH_WEATHER_SUCCEEDED:
       locationState[action.locationData.keyName] = action.locationData;
 
-      console.log('location State', locationState);
-
       return {
         ...state,
         loading: false,
         // currentLocation: `${action.locationData.name}, ${action.locationData.state}`,
         currentLocation: action.locationData,
-        locationData: locationState,
+        // locationData: locationState,
       };
 
     case types.FETCH_WEATHER_FAILED:
@@ -52,14 +51,18 @@ const weatherDataReducer = (state = initialState, action) => {
       };
 
     case types.UPDATE_LOCATION:
-      console.log('update loc', action);
       return {
         ...state,
         currentLocation: action.payload,
       };
 
+    case types.BAD_PATH:
+      return {
+        ...state,
+        badPath: true,
+      };
+
     case types.TOGGLE_MODAL:
-      console.log('Toggled Modal Index', action.payload);
       return {
         ...state,
         modalIndex: action.payload,

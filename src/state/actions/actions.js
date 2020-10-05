@@ -27,6 +27,10 @@ export const toggleModal = (index) => ({
   payload: index,
 });
 
+export const badPath = () => ({
+  type: types.BAD_PATH,
+});
+
 // Navbar Actions
 export const toggleNavbar = () => ({
   type: types.NAVBAR_TOGGLE,

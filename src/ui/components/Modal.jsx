@@ -6,7 +6,6 @@
  * @date    10/04/2020
  * @description Modal component
  *
- *
  * ************************************
  */
 
@@ -25,8 +24,6 @@ const Modal = ({
 }) => {
   const { dt, sunrise, sunset, wind_speed } = dailyIndex;
   const { icon, description } = dailyIndex.weather[0];
-
-  console.log(dt);
 
   const date = dailyDate(dt);
 

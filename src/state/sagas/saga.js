@@ -24,7 +24,6 @@ import api from '../../util/apiKeys';
 const apiKey = api ? api.openWeatherMap : undefined; // add key in place of 'undefined'
 
 function* fetchData(action) {
-  console.log('detchdata test fired', action);
   const { name, state, country, coord } = locations[action.payload]
     ? locations[action.payload]
     : action.payload;
@@ -44,8 +43,6 @@ function* fetchData(action) {
     ).then((response) => response.json());
 
     yield (locationData.weatherData = data);
-
-    console.log('fetch data saga', locationData);
 
     yield put({ type: types.FETCH_WEATHER_SUCCEEDED, locationData });
   } catch (error) {

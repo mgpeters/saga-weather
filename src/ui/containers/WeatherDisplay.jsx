@@ -14,6 +14,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import defaultLocations from '../../util/locations';
+
 import LocationTitle from '../components/LocationTitle.jsx';
 import CurrentWeather from '../components/CurrentWeather.jsx';
 import HourlyDisplay from '../components/HourlyDisplay.jsx';
@@ -28,6 +30,7 @@ import {
   getWeather,
   updateLocation,
   toggleModal,
+  badPath,
 } from '../../state/actions/actions';
 
 const mapStateToProps = (store, ownProps) => ({
@@ -38,6 +41,8 @@ const mapStateToProps = (store, ownProps) => ({
   currentPathname: ownProps.location.pathname,
   // pathname: store.nav.pathname,
   modalIndex: store.weather.modalIndex,
+  badPath: store.weather.badPath,
+  loading: store.weather.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -49,6 +54,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   toggleModal: (index) => {
     dispatch(toggleModal(index));
+  },
+  badPathToggle: () => {
+    dispatch(badPath());
   },
   // updatePathname: (pathname) => {
   //   dispatch(actions.updatePathname(pathname));
@@ -109,8 +117,10 @@ class WeatherDisplay extends Component {
     // default location
     if (this.props.currentPathname === '/') {
       this.props.fetchWeather('newyorkcity');
-    } else {
+    } else if (defaultLocations[locationKeyName]) {
       this.props.fetchWeather(locationKeyName);
+    } else {
+      this.props.badPathToggle();
     }
   }
 
@@ -121,6 +131,13 @@ class WeatherDisplay extends Component {
   }
 
   render() {
+    let loadingOrBadPath;
+    if (this.props.badPath) {
+      loadingOrBadPath = <h1>BadPath - Please Enter Another</h1>;
+    } else {
+      loadingOrBadPath = <Loading />;
+    }
+
     return this.props.currentLocation ? (
       <section className="weather-display">
         <LocationTitle currentLocation={this.props.currentLocation} />
@@ -164,7 +181,7 @@ class WeatherDisplay extends Component {
         ) : null}
       </section>
     ) : (
-      <Loading />
+      loadingOrBadPath
     );
   }
 }

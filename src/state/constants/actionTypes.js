@@ -15,6 +15,7 @@ export const FETCH_WEATHER_SUCCEEDED = 'FETCH_WEATHER_SUCCEEDED';
 export const FETCH_WEATHER_FAILED = 'FETCH_WEATHER_FAILED';
 export const UPDATE_LOCATION = 'UPDATE_LOCATION';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const BAD_PATH = 'BAD_PATH';
 
 // Navbar Action Types
 export const NAVBAR_TOGGLE = 'NAVBAR_TOGGLE';
