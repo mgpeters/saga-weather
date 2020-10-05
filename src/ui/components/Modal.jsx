@@ -46,7 +46,7 @@ const Modal = ({
       </h4>
 
       <h4 className="weather-display--modal__sunrise-sunset">
-        <span>{`Sunrise: ${formatTime(sunrise)} Sunset - ${formatTime(
+        <span>{`Sunrise: ${formatTime(sunrise)} - Sunset: ${formatTime(
           sunset
         )}`}</span>
       </h4>
