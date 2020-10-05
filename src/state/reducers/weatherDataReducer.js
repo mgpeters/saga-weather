@@ -59,9 +59,10 @@ const weatherDataReducer = (state = initialState, action) => {
       };
 
     case types.TOGGLE_MODAL:
-      console.log('Toggled Modal');
+      console.log('Toggled Modal Index', action.payload);
       return {
         ...state,
+        modalIndex: action.payload,
         showModal: !state.showModal,
       };
 

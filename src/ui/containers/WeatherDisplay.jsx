@@ -37,6 +37,7 @@ const mapStateToProps = (store, ownProps) => ({
   showModal: store.weather.showModal,
   currentPathname: ownProps.location.pathname,
   // pathname: store.nav.pathname,
+  modalIndex: store.weather.modalIndex,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -46,8 +47,8 @@ const mapDispatchToProps = (dispatch) => ({
   updateLocation: (location) => {
     dispatch(updateLocation(location));
   },
-  toggleModal: () => {
-    dispatch(toggleModal());
+  toggleModal: (index) => {
+    dispatch(toggleModal(index));
   },
   // updatePathname: (pathname) => {
   //   dispatch(actions.updatePathname(pathname));
@@ -135,9 +136,21 @@ class WeatherDisplay extends Component {
           dailyDate={getDate}
           formatTime={formatHours}
           weatherIcon={weatherIcon}
-          openModal={this.props.toggleModal}
+          toggleModal={this.props.toggleModal}
         />
-        {this.props.showModal ? <Modal /> : null}
+        {this.props.showModal ? (
+          <Modal
+            currentDate={getDate}
+            formatTime={formatHours}
+            dailyIndex={
+              this.props.currentLocation.weatherData.daily[
+                this.props.modalIndex
+              ]
+            }
+            weatherIcon={weatherIcon}
+            toggleModal={this.props.toggleModal}
+          />
+        ) : null}
       </section>
     ) : (
       <Loading />

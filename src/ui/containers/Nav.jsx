@@ -42,36 +42,38 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-class Nav extends Component {
-  componentDidMount() {
-    // this.props.fetchWeather('newyork');
-  }
+const Nav = (props) => {
+  // weird rendering bug when fx comp
+  // componentDidMount() {
+  //   // this.props.fetchWeather('newyork');
+  // }
 
-  componentDidUpdate() {}
+  // componentDidUpdate() {}
 
-  render() {
-    return (
-      <nav
-        className="navbar"
-        style={{ width: this.props.navBarExpanded ? '300px' : '30px' }}
-      >
-        <LocationNav
-          locations={this.props.locations}
-          updatePathname={this.props.updatePathname}
-          currentPathname={this.props.currentPathname}
-          history={this.props.history}
-          fetchWeather={this.props.fetchWeather}
-          searchNewLocation={this.props.searchNewLocation}
-        />
-        <ExpandButton toggle={this.props.toggleNavbar} />
-      </nav>
-    );
-  }
-}
+  // render() {
+  return (
+    <nav
+      className="navbar"
+      style={{ width: props.navBarExpanded ? '300px' : '30px' }}
+    >
+      <LocationNav
+        locations={props.locations}
+        updatePathname={props.updatePathname}
+        currentPathname={props.currentPathname}
+        history={props.history}
+        fetchWeather={props.fetchWeather}
+        searchNewLocation={props.searchNewLocation}
+      />
+      <ExpandButton toggle={props.toggleNavbar} />
+    </nav>
+  );
+  // }
+};
 
 Nav.propTypes = {
   currentLocation: PropTypes.string,
   locations: PropTypes.arrayOf(PropTypes.array),
+  // Add addtl
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);

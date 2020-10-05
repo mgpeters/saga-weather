@@ -15,11 +15,11 @@ import PropTypes from 'prop-types';
 
 import styles from '../../styles/components/Day.scss';
 
-const Day = ({ main, temp, date, weatherIcon, openModal }) => {
+const Day = ({ main, temp, date, weatherIcon, toggleModal, index }) => {
   return main ? (
     <div
       className="weather-display--current-weather__daily-display--day"
-      onClick={() => openModal()}
+      onClick={() => toggleModal(index)}
       role="button"
       tabIndex={0}
       // onKeyUp={() => openModal()}

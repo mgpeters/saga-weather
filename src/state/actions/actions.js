@@ -22,8 +22,9 @@ export const updateLocation = (location) => ({
   payload: location,
 });
 
-export const toggleModal = () => ({
+export const toggleModal = (index) => ({
   type: types.TOGGLE_MODAL,
+  payload: index,
 });
 
 // Navbar Actions
