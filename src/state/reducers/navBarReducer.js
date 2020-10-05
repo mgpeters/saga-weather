@@ -38,6 +38,9 @@ const navBarReducer = (state = initialState, action) => {
     case types.SEARCH_NEW_LOCATION:
       const normalizeKeyName = action.payload.split(', ')[0].toLowerCase();
 
+      // Prevents an additional location array push if user clicks the
+      // nav locations twice
+      console.log('fired');
       for (let i = 0; i < state.locations.length; i += 1) {
         if (state.locations[i].includes(action.payload)) {
           return {
@@ -51,6 +54,7 @@ const navBarReducer = (state = initialState, action) => {
         locations: [...state.locations, [action.payload, normalizeKeyName]],
         searchedLocation: '',
       };
+
     // case types.UPDATE_PATHNAME:
     //   console.log('update pathname');
     //   return {

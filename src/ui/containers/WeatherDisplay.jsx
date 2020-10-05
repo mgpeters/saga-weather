@@ -33,6 +33,8 @@ import {
   badPath,
 } from '../../state/actions/actions';
 
+// window.onbeforeunload = () => false;
+
 const mapStateToProps = (store, ownProps) => ({
   currentLocation: store.weather.currentLocation,
   // locations: store.weather.locations,
@@ -43,6 +45,7 @@ const mapStateToProps = (store, ownProps) => ({
   modalIndex: store.weather.modalIndex,
   badPath: store.weather.badPath,
   loading: store.weather.loading,
+  error: store.weather.error,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -131,11 +134,13 @@ class WeatherDisplay extends Component {
   }
 
   render() {
-    let loadingOrBadPath;
+    let optionalRenders;
     if (this.props.badPath) {
-      loadingOrBadPath = <h1>BadPath - Please Enter Another</h1>;
+      optionalRenders = <h1>BadPath - Please Enter Another</h1>;
+    } else if (this.props.error) {
+      optionalRenders = <h1>There Was An Error Fetching That Location</h1>;
     } else {
-      loadingOrBadPath = <Loading />;
+      optionalRenders = <Loading />;
     }
 
     return this.props.currentLocation ? (
@@ -181,7 +186,7 @@ class WeatherDisplay extends Component {
         ) : null}
       </section>
     ) : (
-      loadingOrBadPath
+      optionalRenders
     );
   }
 }

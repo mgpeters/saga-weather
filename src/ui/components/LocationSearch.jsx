@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-// fx checks if we already searched location to prevent api call
+// fx checks if we already searched location
 const locationNotIncluded = (array, location) => {
   for (let i = 0; i < array.length; i += 1) {
     if (array[i].includes(location)) return false;
@@ -49,7 +49,10 @@ class LocationSearch extends Component {
       <div className="navbar--location-search">
         <form
           onSubmit={(event) => {
-            if (
+            // Checks to see if the user input all requires text (City, State, Country)
+            if (this.props.searchedLocation.split(', ').length !== 3) {
+              console.log('Bad Input');
+            } else if (
               locationNotIncluded(
                 this.props.locations,
                 this.props.searchedLocation
@@ -84,6 +87,7 @@ LocationSearch.propTypes = {
   searchedLocation: PropTypes.string,
   handleSearchChange: PropTypes.func,
   searchNewLocation: PropTypes.func,
+  locations: PropTypes.array,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationSearch);
