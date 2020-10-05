@@ -24,11 +24,3 @@ export default {
 const Template = (args) => <App {...args} />;
 
 export const ValidPath = Template.bind({});
-// LoggedIn.args = {
-//   ...HeaderStories.LoggedIn.args,
-// };
-
-export const InvalidPath = Template.bind({});
-// LoggedOut.args = {
-//   ...HeaderStories.LoggedOut.args,
-// };
