@@ -1,75 +1,37 @@
-# weather-app-cobble
-
-<p align="center">
-<img src="/src/assets/ChronoScope.png" width="25%" height="30%">
-<br/>
-<img src="/src/assets/ChronoScopeTitle.png">
-</p>
-
-#
-
-<h3 align="center"> Developers' tool to monitor React performance and pinpoint areas </br> that require further optimization</h3>
-
-#
-
-### What Is React ChronoScope?
+### Welcome to SagaWeather
 
 <p>
-React ChronoScope is a performance monitoring tool for React developers. It visualizes React application's components displaying components that require further optimization.
+SagaWeather is fully responsive React16 (+Router) / Redux (+Saga) single page application which leverages the free OpenWeatherMap API.
 
-React ChronoScope parses through the React application to construct an interactive tree diagram of the component hierarchy.
+While running the app locally is easy, there is some minor setup involved (mainly with importing your own API key)
 
-<p align="center">
-  <img src="./demo.gif" alt="ReactChronoscope Demo" style="width: 55%">
+You can also enjoy the benefit of documented components with Storybook, as well as automated formatting with Prettier and styling with ESLint.
+
+There is test coverage, but please feel free to fork and clone this project and add your own.
+
+Also, feel free to report any issues you may encounter, lord knows I'm not perfect.
+
+Please enjoy.
+
 </p>
 
 ### How To Install
 
-1. Download the [extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US) from the Chrome Web Store.
+1. Please clone this repository and run "npm install" (or "npm i" for short) in the root directory to download the dependencies.
 
-2. Install the [npm package](https://www.npmjs.com/package/react-chronoscope) in the React application.
+2. You'll have to sign up for a free API key with OpenWeatherMap (https://openweathermap.org/).
 
-```
-npm i react-chronoscope
-```
-
-3. Import the npm library into root container file of React Application and invoke the library with the root container.
+3. You'll need to input and save your api key on line 24 in saga.js, which can be found at path ./src/state/sagas.js
 
 ```
-import chronoscope from 'react-chronoscope';
-const container = document.querySelector('#root');
-render(
-    <App />,
-    container,
-    () => chronoscope(container)
-);
+const apiKey = api ? api.openWeatherMap : undefined; // add key in place of 'undefined'
 ```
+
+4. Lastly, run npm run dev to start the webpack development server.
 
 ### How To Use
 
-After installing both the Chrome Extension and the npm package, run the react application in the browser. Then open Chrome Developer Tools (Inspect) on the React Application and click on `React ChronoScope` at the top of the Developer Tools panel.
-
-### Features
-
-- Node-collapsible tree diagram that displays all hierarchy tree components of a React application.
-- Each Node has information vital for debugging and development such state, props and how optimized is the rendering process.
-- Color legend: </br>
-
-  - ![#FF0000](https://placehold.it/15/FF0000/000000?text=+) `- component was unnecessarily re-rendered.`
-  - ![#90EE90](https://placehold.it/15/90EE90/000000?text=+) `- component was re-rendered`
-  - ![#808080](https://placehold.it/15/808080/000000?text=+) `- component was not re-rendered`
-
-- Timeline that illustrates when each component renders.
-
-</p>
-
-## Team
-
-- **Jason Huang** - [https://github.com/jhmoon999]
-- **Jimmy Mei** - [https://github.com/Jimmei27]
-- **Matt Peters** - [https://github.com/mgpeters]
-- **Sergiy Alariki** - [https://github.com/Serrzhik]
-- **Vinh Chau** - [https://github.com/Vchau511]
+After running the development server, you can click the side navigation bar to expand and choose from a list of preselected cities (New York City, Miami, LosAngeles). If you want to search for your own, you can input the city name, state code, and country code into the search bar to fetch a new location. Please note, you must input all three (city, state, and country) to fetch weather data from a non-default city.
 
 ## License
 
