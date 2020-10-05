@@ -29,16 +29,28 @@ const Modal = ({
 
   return (
     <div className="weather-display--modal">
-      <button onClick={() => toggleModal()}>X</button>
-      <h3>{date.weekday}</h3>
-      <h3>
+      <button
+        className="weather-display--modal__toggle-modal"
+        onClick={() => toggleModal()}
+      >
+        X
+      </button>
+      <h3 className="weather-display--modal__header">{date.weekday}</h3>
+      <img
+        className="weather-display--modal__icon"
+        src={weatherIcon(icon)}
+        alt={`${description}`}
+      ></img>
+      <h4 className="weather-display--modal__description">
+        {titleCase(description)}
+      </h4>
+
+      <h4 className="weather-display--modal__sunrise-sunset">
         <span>{`Sunrise: ${formatTime(sunrise)} Sunset - ${formatTime(
           sunset
         )}`}</span>
-      </h3>
-      <h3>{`Windspeed ${wind_speed}mph`}</h3>
-      <img src={weatherIcon(icon)} alt={`${description}`}></img>
-      <h3>{titleCase(description)}</h3>
+      </h4>
+      <h4 className="weather-display--modal__windspeed">{`Windspeed ${wind_speed}mph`}</h4>
     </div>
   );
 };
