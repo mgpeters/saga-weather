@@ -11,7 +11,8 @@
     "lint": "eslint \"src/**/*.{js, jsx}\" --quiet",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "docker:dev": "docker-compose -f docker-compose-dev.yml up"
+    "docker:dev": "docker-compose -f docker-compose-dev.yml up",
+    "docker:dev-server": "webpack-dev-server --host 0.0.0.0 --inline --content-base ."
   },
   "repository": {
     "type": "git",

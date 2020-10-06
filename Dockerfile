@@ -1,4 +1,4 @@
-FROM node:12.1
+FROM node:10.1
 
 WORKDIR /usr/src/app
 
@@ -8,4 +8,4 @@ RUN npm install
 
 RUN npm run build
 
-EXPOSE 3000
+EXPOSE 8080

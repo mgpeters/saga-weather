@@ -1,9 +1,3 @@
-# command to run:
-# docker-compose -f docker-compose-dev-hot.yml up
-
-# This will start csps-dependencies & postgres db container with it's
-# associated data volumes container and run 'npm run dev:hot'
-
 version: '3'
 services:
   dev:
@@ -14,7 +8,6 @@ services:
     volumes:
       - ./:/usr/src/app
       - node_modules:/usr/src/app/node_modules
-    command: npm run dev
-# shared volumes for development
+    command: npm run docker:dev-server
 volumes:
   node_modules:
