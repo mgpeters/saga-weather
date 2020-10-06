@@ -1,0 +1,13 @@
+version: '3'
+services:
+  dev:
+    image: mgpeters/saga-weather-dev
+    container_name: saga-weather-dev
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    command: npm run docker:dev-server
+volumes:
+  node_modules:

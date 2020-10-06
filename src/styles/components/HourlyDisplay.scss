@@ -1,0 +1,16 @@
+.weather-display--current-weather__hourly-display {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  .weather-display--current-weather__hourly-display--hourly {
+    margin: auto;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 250px) and (max-width: 750px) {
+  .weather-display--current-weather__hourly-display {
+    display: none;
+  }
+}

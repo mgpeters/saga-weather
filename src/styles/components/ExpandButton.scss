@@ -1,0 +1,11 @@
+.navbar--location-list__toggle {
+  button {
+    height: -webkit-fill-available;
+    width: 50px;
+    span {
+      font-family: 'Roboto', serif;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+  }
+}
