@@ -6,11 +6,9 @@ While running the app locally is easy, there is some minor setup involved (mainl
 
 You can also enjoy the benefit of documented components with Storybook, as well as automated formatting with Prettier and styling with ESLint.
 
-There is test coverage, but please feel free to a pull request this project and add your own.
+There is test coverage, but please feel free to submit a pull request this project and add your own.
 
-Also, feel free to report any issues you may encounter, lord knows I'm not perfect.
-
-Please enjoy.
+Also, feel free to report any issues you may encounter.
 
 ### How To Install
 
@@ -18,7 +16,7 @@ Please enjoy.
 
 2. You'll have to sign up for a free API key with OpenWeatherMap (https://openweathermap.org/).
 
-3. You'll need to input and save your api key on line 24 in saga.js, which can be found at path ./src/state/sagas.js
+3. Then, input and save your api key on line 24 in saga.js, which can be found at path ./src/state/sagas.js
 
 ```
 const apiKey = api ? api.openWeatherMap : undefined; // add key in place of 'undefined'
@@ -33,6 +31,8 @@ After running the development server, you can click the side navigation bar to e
 Please note, you must input all three (city, state, and country) to fetch weather data from a non-default city.
 
 You can also click any of the weekly forecast items below the current forecast (and below the hourly depending on the size of the screen) to display a modal with additional information: sunset time, sunrise time, description, and wind speed.
+
+Please enjoy!
 
 ## License
 
