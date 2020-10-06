@@ -10,7 +10,8 @@
     "format": "prettier \"src/**/*.{js, html}\" --write",
     "lint": "eslint \"src/**/*.{js, jsx}\" --quiet",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "docker:dev": "docker-compose -f docker-compose-dev.yml up"
   },
   "repository": {
     "type": "git",
