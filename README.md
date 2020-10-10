@@ -16,7 +16,7 @@ Also, feel free to report any issues you may encounter.
 
 2. You'll have to sign up for a free API key with OpenWeatherMap (https://openweathermap.org/).
 
-3. Then, input and save your api key on line 24 in saga.js, which can be found at path ./src/state/sagas.js
+3. Then, input and save your api key on line 24 in saga.js, which can be found at path ./src/state/sagas/sagas.js
 
 ```
 const apiKey = api ? api.openWeatherMap : undefined; // add key in place of 'undefined'
